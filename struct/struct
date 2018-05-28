@@ -1,3 +1,4 @@
+#web:https://www.cnblogs.com/Simulation-Campus/p/8684692.html
 import struct
 pdb_format='6s5s1s4s1s3s1s1s4s1s3s8s8s8s6s6s10s2s3s'
 def atom_line(line):
