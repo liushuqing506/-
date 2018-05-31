@@ -9,8 +9,8 @@ delta = datetime.timedelta(days=1)
 now= datetime.datetime.now()
 i=now.strftime('%m%d_%H.%M')
 j=now.strftime('%m%d')
-file = r'C:\Users\liushuqing506\Desktop\郑大附院\%s.xlsx'%j
-out_put = r'C:\Users\liushuqing506\Desktop\郑大附院\%s.csv'%i
+file = r'C:\Users\liushuqing506\Desktop\%s.xlsx'%j
+out_put = r'C:\Users\liushuqing506\Desktop\%s.csv'%i
 
 def data_systerm(file):
         #读取9.10系统录入样本信息
