@@ -1,0 +1,24 @@
+#-*- coding:utf-8 -*-
+#-------------------------------------------------------------------------------
+# Name:        模块1
+# Purpose:
+#
+# Author:      liushuqing506
+#
+# Created:     26/06/2018
+# Copyright:   (c) liushuqing506 2018
+# Licence:     <your licence>
+#-------------------------------------------------------------------------------
+import easygui as g
+msg = "请输入坐标信息"
+title = "坐标比例"
+fieldNames = ["大片段_后","大片段_前","小片段_后","小片段_前",'结果']
+fieldValues = ['','','','','']
+fieldValues=g.multenterbox(msg,title,fieldNames,fieldValues)
+Big_B= int(fieldValues[0])
+Big_F= int(fieldValues[1])
+Sma_B= int(fieldValues[2])
+Sma_F= int(fieldValues[3])
+result=(Sma_B-Sma_F)/(Big_B-Big_F)
+fieldValues = [str(Big_B),str(Big_F),str(Sma_B),str(Sma_F),str(result)]
+fieldValues=g.multenterbox(msg,title,fieldNames,fieldValues)
