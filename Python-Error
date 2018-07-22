@@ -1,0 +1,4 @@
+1.
+TypeError: expected string or bytes-like object
+正则参数，不是字符串，改成字符串就行了！
+2.
