@@ -11,4 +11,6 @@ https://www.cnblogs.com/lilidun/p/6041198.html
 https://blog.csdn.net/github_39533414/article/details/80142729
 5.升级pip3
 python3 -m pip install --upgrade pip
-
+6.清华大学开源软件镜像站
+https://mirrors.tuna.tsinghua.edu.cn/
+https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/
