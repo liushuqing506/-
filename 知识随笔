@@ -3,3 +3,5 @@ web:http://www.cnblogs.com/wupeiqi/p/4493506.html
 2.Excel文件修改格式（列宽，颜色，合并单元格等）
 https://blog.csdn.net/qq_31489933/article/details/80323426
 https://www.cnblogs.com/linxiyue/p/4158797.html
+3.升级pip3
+python3 -m pip install --upgrade pip
