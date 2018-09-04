@@ -3,5 +3,12 @@ web:http://www.cnblogs.com/wupeiqi/p/4493506.html
 2.Excel文件修改格式（列宽，颜色，合并单元格等）
 https://blog.csdn.net/qq_31489933/article/details/80323426
 https://www.cnblogs.com/linxiyue/p/4158797.html
-3.升级pip3
+3.不卸载python2,继续安装python3
+https://www.cnblogs.com/rookie404/p/6142151.html
+4.安装pip3
+https://www.cnblogs.com/lilidun/p/6041198.html
+安装完成后，运行pip3没有正常打印help信息，则可能是/usr/bin内没有pip3命令（因为 linux 默认去 /usr/bin / 下找 pip3），如下设置软连接即可
+https://blog.csdn.net/github_39533414/article/details/80142729
+5.升级pip3
 python3 -m pip install --upgrade pip
+
