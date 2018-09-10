@@ -1,0 +1,7 @@
+1.samtools软件使用
+samtools faidx命令 对fasta文件建立索引,生成的索引文件以.fai后缀结尾。该命令也能依据索引文件快速提取fasta文件中的某一条（子）序列
+生成了索引文件genome.fasta.fai,是一个文本文件，分成了5列。第一列是子序列的名称；第二列是子序列的长度；个人认为“第三列是序列起始位置”
+samtools faidx genome.fasta Supercontig_6 > ~/data/genome.fasta
+利用索引找出头文件名为Supercontig_6的序列，转移到新的fasta文件中
+2..fna.gz格式导入fasta文件格式
+gzip -dc genomic.fna.gz > genome.fasta
