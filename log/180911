@@ -1,1 +1,4 @@
+1.
 ../是上一级目录；./本级目录
+2.
+fastq-dump -A foo SRR1174233.sra  则生成 foo.fastq (-A参数修改原本文件的前缀；不加-A参数则生成SRR1174233.fastq)
