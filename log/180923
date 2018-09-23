@@ -4,6 +4,7 @@ chkconfig --list mysqld(查看是否开机启动)
 chkconfig mysqld on(设为开机启动)
 ss -ntl;service mysqld start(启动3306端口服务)
 2.
+设置密码：运行mysql_secure_installation
 mysql创建密码提示“Error: Password hash should be a 41-digit hexadecimal number“
 解决办法：https://blog.csdn.net/qq575217319/article/details/41441263
 3.
