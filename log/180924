@@ -6,3 +6,16 @@ show tables; 查看当前文件夹中有那些表
 create table 表名(nid int,name varchar(20)) 创建表(列)
 select * form 表名; 查看表中的所有数据
 insert into 表名(nid,name) values(1,'Alex');插入数据
+2.
+用户登录：mysql -u Alex -p 密码(默认的IP地址是localhost,若IP为其他则为：mysql -u Alex -h 127.0.0.1 -p 密码)
+用户管理 用户信息在musql库的user表中 select host,user from user;
+创建新用户train和密码123（用户名：用户@IP地址）：create user train@localhost identified by '123';
+删除用户：drop user train@localhost
+修改用户：rename user train@localhost to Alex@127.0.0.1;
+修改密码：set password for root@localhost = Password('新密码')
+3.
+权限
+默认权限什么都没有
+授权用户train@localhost查看(select为查看权限)root里面的test1.tb1表：grant select on test1.tb1 to train@localhost; 
+select为仅查看权限；select,insert为查看和插入权限
+数据库.表（test1.tb1   test1.*   *.*）
