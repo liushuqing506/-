@@ -1,0 +1,8 @@
+1.
+show databases; 显示根目录有哪些文件夹
+create database 数据库名; 创建文件夹
+use 数据库名; 选中文件夹，进入文件夹
+show tables; 查看当前文件夹中有那些表
+create table 表名(nid int,name varchar(20)) 创建表(列)
+select * form 表名; 查看表中的所有数据
+insert into 表名(nid,name) values(1,'Alex');插入数据
