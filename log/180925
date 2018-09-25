@@ -3,8 +3,8 @@
 fastqc adapter类型：
 ‘Illumina Sing End’/'Illumina Paired End'使用TruSeq2-SE.fa(单端) or TruSeq2-PE.fa（双端）
 ‘TruSeq Universal Adapter’/'TruSeq Adapter,Index...'使用TruSeq3-SE.fa(单端) or TruSeq3-PE.fa（双端）
-<在目录/home/train/rnaseq/01raw_data进行操作>
 
+<在目录/home/train/rnaseq/01raw_data进行操作>
 软件trimmomatic
 
 trimmomatic PE -threads 4 \
@@ -30,6 +30,17 @@ SLIDINGWINDOW:4:20 MINLEN:50 TOPHRED33
 
 注意：ILLUMINACLIP:(:前面没有空格)
 针对双端测序数据ILLUMINACLIP后面设置为true
+
+#################################################
+<在目录/home/train/rnaseq进行操作>
+1.建立索引
+STAR --runThreadN 6 --runMode genomeGenerate \
+--genomeDir arab_STAR_genome \
+--genomeFastaFiles 00ref/TAIR10_Chr.all.fasta \
+--sjdbGTFfile 00ref/Araport11_GFF3_genes_transposons.201606.gtf \
+--sjdbOverhang 149
+2.比对
+
 
 #################################################
 软件rsem
