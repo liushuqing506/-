@@ -5,7 +5,7 @@ fastqc adapter类型：
 ‘TruSeq Universal Adapter’/'TruSeq Adapter,Index...'使用TruSeq3-SE.fa(单端) or TruSeq3-PE.fa（双端）
 
 <在目录/home/train/rnaseq/01raw_data进行操作>
-软件trimmomatic
+软件trimmomatic（质量过滤）
 
 trimmomatic PE -threads 4 \
 sample1_R1.fastq.gz sample1_R2.fastq.gz \
@@ -33,6 +33,7 @@ SLIDINGWINDOW:4:20 MINLEN:50 TOPHRED33
 
 #################################################
 <在目录/home/train/rnaseq进行操作>
+软件STAR（序列比对）
 1.建立索引
 STAR --runThreadN 6 --runMode genomeGenerate \
 --genomeDir arab_STAR_genome \
