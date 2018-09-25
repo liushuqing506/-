@@ -41,3 +41,5 @@ rsem-calculate-expression --paired-end --no-bam-output \
 -q 03align_out/sample2_Aligned.toTranscriptome.out.bam \
 arab_RSEM/arab_rsem \
 04rsem_out/sample2_rsem
+
+#####################################################
