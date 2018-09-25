@@ -1,7 +1,11 @@
 ##############################################
-软件trimmomatic
 
+fastqc adapter类型：
+‘Illumina Sing End’/'Illumina Paired End'使用TruSeq2-SE.fa(单端) or TruSeq2-PE.fa（双端）
+‘TruSeq Universal Adapter’/'TruSeq Adapter,Index...'使用TruSeq3-SE.fa(单端) or TruSeq3-PE.fa（双端）
 <在目录/home/train/rnaseq/01raw_data进行操作>
+
+软件trimmomatic
 
 trimmomatic PE -threads 4 \
 sample1_R1.fastq.gz sample1_R2.fastq.gz \
@@ -15,7 +19,7 @@ SLIDINGWINDOW:4:20 MINLEN:50 TOPHRED33
 
 
 trimmomatic PE -threads 4 \
-sample1_R1.fastq.gz sample1_R2.fastq.gz \
+sample2_R1.fastq.gz sample2_R2.fastq.gz \
 ../02clean_data/sample2_paired_clean_R1.fastq.gz \
 ../02clean_data/sample2_unpair_clean_R1.fastq.gz \
 ../02clean_data/sample2_paired_clean_R2.fastq.gz \
