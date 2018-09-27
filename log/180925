@@ -41,6 +41,13 @@ STAR --runThreadN 6 --runMode genomeGenerate \
 --sjdbGTFfile 00ref/Araport11_GFF3_genes_transposons.201606.gtf \
 --sjdbOverhang 149
 2.比对
+2_1 简单版
+STAR --runThreadN 5 --genomeDir arab_STAR_genome \
+--readFilesCommand zcat \
+--readFilesIn 02clean_data/sample1_paired_clean_R1.fastq.gz \
+02clean_data/sample1_paired_clean_R2.fastq.gz \
+--outFileNamePrefix 03align_out/sample1_
+2_2 
 
 
 #################################################
