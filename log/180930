@@ -1,0 +1,10 @@
+1.
+默认值
+是否可以为空
+自增列（数字，必须是索引-主键）一张表只能有一个主键（可多列组成主键），主键一般是自增的，唯一不能重复，不能为null(一般情况下，自增列设置为主键)
+唯一列可以为null，一张表可以有多个唯一列
+create table tb5(
+              nid int not null auto_increment primary key,
+              name varchar(16)
+              age int default 19)engine=inbodb default charset=utf8;
+2.
