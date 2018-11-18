@@ -3,9 +3,9 @@ use strict;
 use warnings;
 use Getopt::Long;
 use Data::Dumper;
-use FindBin qw($Bin $Script); #perl脚本的路径
+use FindBin qw($Bin $Script); #perl脚本的位置
 use File::Basename qw(basename dirname);
-use Cwd qq(abs_path);#运行perl脚本的路径
+use Cwd qq(abs_path);#运行perl脚本时所在的路径
 my $BEGIN_TIME=time();
 my $Time_Start = &sub_format_datetime(localtime($BEGIN_TIME));
 print "Program Starts Time:$Time_Start\n";
@@ -49,9 +49,11 @@ my $maxcpu = defined $mpu ? $mpu : 100 ;
 $type ||= "gene";
 my $database;
 {
-	my $line=`cat /share/nas2/genome/bmksoft/tool/newPerlBase/v1.0/cluster`;chomp $line;#cluster hpc05
-	if ($line =~ "hpc05") {
+	my $line=`cat /share/nas2/genome/bmksoft/tool/newPerlBase/v1.0/cluster`;chomp $line;#cluster文件里面 hpc05
+	if ($line =~ "hpc05") { #集群hpc05
         $database = defined $db ? $db : "$Bin/Database/database_hpc05.cfg" ;
+	#$Bin 为/share/nas1/wangyt/script/pipeline/Reseq/v3.0.3/work_processv2.5.pl 脚本所在位置，即/share/nas1/wangyt/script/pipeline/Reseq/v3.0.3/
+	#database_hpc05.cfg文件里面：Database_Dir    /share/nas4/dengdj/Research/DNA/Database_donghs（所有基因组库）
 	}elsif($line =~ "hpc02"){
 		$database = defined $db ? $db : "$Bin/Database/database_hpc02.cfg" ;
 	}elsif($line =~ "biocloud"){
@@ -65,35 +67,36 @@ my $database;
 while (<IN>)
 {
 	chomp;
-	next if ($_=~/\#/);
-	next if ($_=~/^\s*$/);
-	my @data=split/\s+/,$_;
-	$cfg_hash{$data[0]}=$data[1] if ($_=~/^chr_id/);
-	$cfg_hash{$data[0]}=$data[1] if ($_=~/^analysis_dir/);
+	next if ($_=~/\#/);#有#的行时，跳过
+	next if ($_=~/^\s*$/);#开头时空字符或者$时，跳过
+	my @data=split/\s+/,$_;#以空格分割
+	$cfg_hash{$data[0]}=$data[1] if ($_=~/^chr_id/);#如果开头时chr_id，存入哈希
+	$cfg_hash{$data[0]}=$data[1] if ($_=~/^analysis_dir/);#如果开头时analysis_dir，存入哈希
 	$cfg_hash{$data[0]}=$data[1] if ($_=~/^extra_fa/);
 	$project_hash{$data[0]}=$data[1] if ($_=~/^Project/);
-	if ($_=~/^key_Project*/)
+	if ($_=~/^key_Project*/)#关键词
 	{
-		my $pr=(split/\_/,$data[0])[1];
+		my $pr=(split/\_/,$data[0])[1];#$data[0]是key_Project1;$data[1]是Rice
 		$info_hash{$pr}{key}=$data[1];
 	}
 }
 close(IN);
 
 
-open (IN, $database) || die "Can't open $database, $!\n" ;
+open (IN, $database) || die "Can't open $database, $!\n" ;#$database是$Bin/Database/database_hpc05.cfg 
+#打开database_hpc05.cfg文件里面：Database_Dir    /share/nas4/dengdj/Research/DNA/Database_donghs
 my %hdatabase = ();
 while (<IN>){
 	chomp ;
-	next if (m/^\#/ || m/^\s*$/);
+	next if (m/^\#/ || m/^\s*$/);#跳过#开头，或者空格，或者$开头的行
 	my ($key, $value) = split ;
 	$hdatabase{$key} = $value ;
 }
 close(IN);
-my $database_dir = $hdatabase{Database_Dir} ;
+my $database_dir = $hdatabase{Database_Dir} ;#/share/nas4/dengdj/Research/DNA/Database_donghs
 
 #==================================================
-createLog($Title,$version,$$,"$cfg_hash{analysis_dir}/log/",$test);
+createLog($Title,$version,$$,"$cfg_hash{analysis_dir}/log/",$test);##############
 mkdirOrDie("$cfg_hash{analysis_dir}/Work_sh");
 
 #open(SH,">$cfg_hash{analysis_dir}/Work_sh/All_project.sh") or die $!;
