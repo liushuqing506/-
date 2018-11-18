@@ -1,0 +1,11 @@
+FindBin 和 Cwd区别：
+#!/usr/bin/perl -w
+use strict;
+use warnings;
+use FindBin qw($Bin); 
+my $root_path = $Bin; 
+print "脚本的路径:$root_path\n"; 
+
+use Cwd qw(abs_path getcwd); 
+my $abs = abs_path(getcwd()); 
+print "运行脚本时所在的路径:$abs\n"; 
