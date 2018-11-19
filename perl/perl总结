@@ -1,3 +1,4 @@
+1.
 FindBin 和 Cwd区别：
 #!/usr/bin/perl -w
 use strict;
@@ -9,3 +10,30 @@ print "脚本的路径:$root_path\n";
 use Cwd qw(abs_path getcwd); 
 my $abs = abs_path(getcwd()); 
 print "运行脚本时所在的路径:$abs\n"; 
+2.
+my %CDS;
+while (<IN>) { 
+   chomp;
+   my @line= split /\t/,$_; #根据制表符分割
+   if ($line[2] eq "CDS" and $line[8] =~ /Parent=(rna\d+)/){ #选出第2列是CDS，并提取隶属的mRNA的ID
+   	$CDS{$1} += 1;#每找到对应mRNA下的CDS个数增加1，将mRNAID作为%CDS的键，对应CDS个数为值
+   }
+}
+while ((my $key,my $value) = each %CDS){ #循环%CDS
+	print OUT "$key\t$value\n";#将键和值存入新文件
+}
+哈希赋值：%CDS{$1}  （当哈希的值是标量时）
+3.
+哈希的键是唯一的
+哈希的值赋值为数组类型：:@{$gene_intron{$line[0]}} 
+提取哈希对应键的值（值为数组）：@{$gene_intron{$gene}}
+对数组按数字大小排序：sort{$a<=>$b}(@line)
+4.
+遍历foreach
+哈希：
+遍历哈希的所有键：foreach my $gene (keys %gene_intron)
+哈希所有值为标量：foreach my $gene (values %gene_intron)
+遍历对应键的数组值：foreach my $num (@{$gene_intron{$gene}})
+数组：
+foreach my $num (@gene_intron)
+
