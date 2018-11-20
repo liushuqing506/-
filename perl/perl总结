@@ -42,4 +42,8 @@ my @arr;
 $arr[0] = "Fred"; $arr[1] = "John";
 my $arr=@arr; 
 print join(' ',@arr,$arr),"\n";
+6.
+-e File exists文件存在
+-f File is a plain file文件是一个普通文件
+-d File is a directory文件是一个文件夹
 
