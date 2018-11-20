@@ -36,4 +36,10 @@ while ((my $key,my $value) = each %CDS){ #循环%CDS
 遍历对应键的数组值：foreach my $num (@{$gene_intron{$gene}})
 数组：
 foreach my $num (@gene_intron)
+5.
+数组赋值和遍历
+my @arr;
+$arr[0] = "Fred"; $arr[1] = "John";
+my $arr=@arr; 
+print join(' ',@arr,$arr),"\n";
 
