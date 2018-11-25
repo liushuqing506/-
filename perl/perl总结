@@ -47,4 +47,6 @@ print join(' ',@arr,$arr),"\n";
 -e File exists文件存在
 -f File is a plain file文件是一个普通文件
 -d File is a directory文件是一个文件夹
-
+7.
+设哈希的值为数组，并添加元素
+push @{$gene_intron{$line[0]}},$line[1];
