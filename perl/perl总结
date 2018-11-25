@@ -50,3 +50,8 @@ print join(' ',@arr,$arr),"\n";
 7.
 设哈希的值为数组，并添加元素
 push @{$gene_intron{$line[0]}},$line[1];
+8.
+截取某一部分
+$str="testtest";
+print substr($str,0,5);#0为起始位置，5为长度
+返回值为testt
