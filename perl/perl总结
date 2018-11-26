@@ -60,3 +60,5 @@ defined $b
 当$b有值时，返回1（真）；当$b无值时，返回0（假）；
 !defined $b
 相反
+if(!defined $a and !defined $b and !defined $c){&help;print "Error:You must select one of (a b c)!\n";exit;}
+$a,$b,$c全都没有则成立，只要有一个就不成立
