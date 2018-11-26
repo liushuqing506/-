@@ -58,3 +58,5 @@ print substr($str,0,5);#0为起始位置，5为长度
 9.
 defined $b
 当$b有值时，返回1（真）；当$b无值时，返回0（假）；
+!defined $b
+相反
