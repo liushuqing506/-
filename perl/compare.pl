@@ -35,7 +35,7 @@ for my $i(0..$#samples){
 	push @ash2,$samples[$i];
 	for my $k(0..$#samples){
 		my @ll=$hash{$samples[$k]};
-		my $num = &compare(\@{$hash{$samples[$i]}},\@{$hash{$samples[$k]}});
+		my $num = &compare(\@{$hash{$samples[$i]}},\@{$hash{$samples[$k]}});#提取数组类型的哈希值，并转为地址（前面加\）
 		push @ash2,$num;
 	}
 	push @ash2,"\n";
@@ -49,7 +49,7 @@ sub compare(){
 	my ($arr1,$arr2)=@_;
 	my $count =0;
 	for my $i(0..$num_all-2){
-		if ($arr1->[$i] ne $arr2->[$i]){
+		if ($arr1->[$i] ne $arr2->[$i]){  #提取数组的每个元素 ->
 			$count++;
 		}
 	}
