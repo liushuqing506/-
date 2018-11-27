@@ -59,7 +59,7 @@ while (<IN>)
 #			print "$data[$j]\n";die;
 			if ($data[$i] ne $data[$j]&&$data[$i]!~/N/&&$data[$j]!~/N/)
 			{
-				$snp_hash{$sample_num[$sam1_num]}{$sample_num[$sam2_num]}++;
+				$snp_hash{$sample_num[$sam1_num]}{$sample_num[$sam2_num]}++;#双键哈希
 			}
 			if ($sample_num[$sam1_num] eq $sample_num[$sam2_num])
 			{
