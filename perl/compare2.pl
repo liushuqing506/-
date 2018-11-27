@@ -35,25 +35,25 @@ my @sample_num;
 while (<IN>) 
 {
 	chomp;
-	if ($_=~/\#/)
+	if ($_=~/\#/) #以#开头行
 	{
-		my @sample=split/\t/,$_;
-		for (my $i=0;$i<@sample ;$i++)
+		my @sample=split/\t/,$_; #拆分
+		for (my $i=0;$i<@sample ;$i++) #遍历第一行
 		{
-			if ($sample[$i]=~/^R\d+/)
+			if ($sample[$i]=~/^R\d+/) #如果以R+数字开头
 			{
-				push(@sample_num,$sample[$i]);
+				push(@sample_num,$sample[$i]); #将所有样本编号存入数组
 			}
 		}
 		next;
 	}
-	next if ($_=~/^\s*$/);
-	my @data=split /\t/,$_;
-	for (my $i=3;$i<@data;$i++)
+	next if ($_=~/^\s*$/); #如果以$开头则跳过
+	my @data=split /\t/,$_;  #非#和$开头行，拆分
+	for (my $i=3;$i<@data;$i++)  #从3开始，即样本行为第3列
 	{
 #		print "$data[$i]\n";
-		my $sam1_num=$i-3;
-		for (my $j=3;$j<@data;$j++)
+		my $sam1_num=$i-3;  
+		for (my $j=3;$j<@data;$j++)#
 		{
 			my $sam2_num=$j-3;
 #			print "$data[$j]\n";die;
