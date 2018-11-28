@@ -159,7 +159,7 @@ my $bestk = $hash{$lnk};
 my $Qmatrix = "$od/6_backup/pop-both/pop_K$bestk\-combined-merged.txt";
 $cmd = "/share/nas2/genome/bin/Rscript $Bin/deal_result.R $file $Qmatrix $od/6_backup $key";
 &run_or_die($cmd);
-`sed -i '1i<Covariate>' $od/6_backup/$key.best_K$bestk.txt`;
+`sed -i '1i<Covariate>' $od/6_backup/$key.best_K$bestk.txt`; #在文件的一行插入<Covariate>，1i是第一行
 
 
 #############################################################################
