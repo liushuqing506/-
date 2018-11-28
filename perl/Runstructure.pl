@@ -28,7 +28,7 @@ GetOptions(
 	"h|?" => \&help,
 ) || &help;
 
-&help unless ($vcf && $key && $od );
+&help unless ($vcf && $key && $od ); #必须有的参数
 
 sub help
 {
@@ -76,7 +76,7 @@ print "\nStart Time :[$Time_Start]\n\n";
 ######################################################################################
 
 #vcftools文件进行过滤
-mkdir("$od/1_vcf",0755) unless -d "$od/1_vcf";
+mkdir("$od/1_vcf",0755) unless -d "$od/1_vcf"; #创建文件夹
 my $cmd = "$Bin/vcftools --vcf $vcf --out $od/1_vcf/$key --recode --maf $maf --max-missing $int  --remove-indels --min-alleles 2 --max-alleles 2";
 &run_or_die($cmd);
 
