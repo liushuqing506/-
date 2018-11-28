@@ -1,4 +1,7 @@
 http://www.apelearn.com/bbs/study/27.htm （perl快速入门）
+0.
+查看Perl的安装包安装路径 perldoc perllocal
+查找要找的包
 1.
 FindBin 和 Cwd区别：
 #!/usr/bin/perl -w
