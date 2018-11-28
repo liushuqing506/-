@@ -110,9 +110,9 @@ my $structure = "$od/3_structure/$key.recode.strct_in";
 #样本数
 my $sam = (split /\s+/, `wc -l $structure`)[0] ; 
 chomp $sam;
-$sam = $sam-2;
+$sam = $sam-2;#去除前两行（第一行是chr,第二行是数字）
 #位点数
-my $loci = `head -n 1 $structure \| perl -ne \'\@a=split; print scalar \@a\'` ;
+my $loci = `head -n 1 $structure \| perl -ne \'\@a=split; print scalar \@a\'` ; #列数，即pos数
 chomp $loci;
 
 mkdir("$od/4_result") unless -d "$od/4_result";
@@ -132,7 +132,7 @@ $maxK = $maxK -1;
 $cmd = "/share/nas1/wangyt/software/R-3.4.3/bin/Rscript $Bin/structure.R $od/4_result/  $od/5_final/  $file $minK $maxK";
 &run_or_die($cmd);
 my $pdf = "$od/5_final/*.pdf";
-$cmd = "cd $od/5_final/ && convert $pdf $key.png";
+$cmd = "cd $od/5_final/ && convert $pdf $key.png"; #convert是一个软件可以将pdf转换为png
 &run_or_die($cmd);
 $cmd = "/share/nas2/genome/bin/Rscript $Bin/deltaK.R $od/5_final/evannoMethodStructure.txt";
 &run_or_die($cmd);
