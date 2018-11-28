@@ -65,3 +65,20 @@ defined $b
 相反
 if(!defined $a and !defined $b and !defined $c){&help;print "Error:You must select one of (a b c)!\n";exit;}
 $a,$b,$c全都没有则成立，只要有一个就不成立
+10.
+my @aa=("A","C","T","A","C","T","D");
+my $c="OKlwer";
+my @bb=("A","G","T","A","C","T","S");
+my $len = @aa;
+my $num = &compare(\@aa,$c); #子程序，数组类型需要在前面加\
+print "$num\n";
+
+sub compare(){
+	#my ($arr1) = $_[0];
+	#my (@arr1) = $_[1];
+	#my (@arr2) = $_[2];
+	my ($b,$d)=@_;
+	my $seq=substr($d,3,2); #
+	return "$seq\t$b->[0]\n";#子程序里面数组需要使用->来提取元素
+}
+结果返回：we	A
