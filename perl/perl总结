@@ -82,3 +82,6 @@ sub compare(){
 	return "$seq\t$b->[0]\n";#子程序里面数组需要使用->来提取元素
 }
 结果返回：we	A
+11.
+统计文件out_pos.txt的列数
+les out_pos.txt |head -n 1 |perl -lane '@a=split; print scalar @a'
