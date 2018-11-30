@@ -89,4 +89,10 @@ les out_pos.txt |head -n 1 |perl -lane '@a=split; print scalar @a'
 my $A="1	2	3	4	5	6	7	8	9	10	11	12	13	14	15	16	17	18";
 my $var = (split("\t",$A,7))[5]; #7是分为7的组
 结果返回6
+13.
+@ARGV
+含义是包含了程序从命令行得到的所有参数
+a.pl 10 20 30 a b c
+$ARGV[0]是10
+$ARGV[3]是a
 
