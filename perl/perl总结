@@ -95,4 +95,5 @@ my $var = (split("\t",$A,7))[5]; #7是分为7的组
 a.pl 10 20 30 a b c
 $ARGV[0]是10
 $ARGV[3]是a
-
+14
+sed -i '1i<Covariate>' $od/6_backup/$key.best_K$bestk.txt #在文件的一行插入<Covariate>，1i是第一行
