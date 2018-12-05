@@ -1,4 +1,5 @@
 http://www.apelearn.com/bbs/study/27.htm （perl快速入门）
+a?b:c 是条件表达式,表示如果a为真,则表达式值为b,如果a为假,则表达式值为c
 0.
 查看Perl的安装包安装路径 perldoc perllocal
 查找要找的包
