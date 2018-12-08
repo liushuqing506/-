@@ -101,3 +101,11 @@ sed -i '1i<Covariate>' $od/6_backup/$key.best_K$bestk.txt #在文件的一行插
 15
 glob--读取一个目录下的所有文件
 my @sam_num = glob('/home/lsq/320G/test/*');
+16
+use FindBin qw($Bin $Script);
+$Bin 脚本的绝对路径（全）
+$Script 脚本的名字
+use File::Basename qw(basename dirname);
+my $sam_num = '/home/lsq/320G/test/123.txt';
+basename($sam_num) 为123.txt
+dirname($sam_num) 为/home/lsq/320G/test/
