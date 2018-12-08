@@ -12,8 +12,8 @@ my $Writer = "wangyt";
 my $Date   = "2018/04/02";
 
 #######################################################################################
-my ($vcf,$key,$od,$maf,$int,$minK,$maxK,$rep);
-my ($queue,$maxproc);
+my ($vcf,$key,$od,$maf,$int,$minK,$maxK,$rep);#需要的参数
+my ($queue,$maxproc);#线程数
 GetOptions(
 	"vcf:s"	=> \$vcf,
 	"od:s"	=> \$od,
