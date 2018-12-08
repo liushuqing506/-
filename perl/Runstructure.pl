@@ -78,7 +78,7 @@ print "\nStart Time :[$Time_Start]\n\n";
 #vcftools文件进行过滤
 mkdir("$od/1_vcf",0755) unless -d "$od/1_vcf"; #创建文件夹
 my $cmd = "$Bin/vcftools --vcf $vcf --out $od/1_vcf/$key --recode --maf $maf --max-missing $int  --remove-indels --min-alleles 2 --max-alleles 2";
-#$Bin是脚本所在位置
+#$Bin是脚本所在位置,生成1_vcf/Mango.recode.vcf
 &run_or_die($cmd);#子程序，运行上面的命令
 
 #基于LD过滤连锁位点，保留中性位点
@@ -102,9 +102,10 @@ close OUT;
 mkdir("$od/2_plink") unless -d "$od/2_plink"; #生成$od/2_plink文件夹
 mkdir("$od/3_structure") unless -d "$od/3_structure"; #生成$od/3_structure
 $cmd = "cd $od/2_plink && $Bin/plink --noweb --vcf $od/1_vcf/$key.recode.id.vcf --indep-pairwise 212 5  0.2 --out $key --allow-extra-chr ";
-#
+#进入2_plink/ ，生成
 &run_or_die($cmd);
 $cmd = "cd $od/3_structure &&  $Bin/plink --noweb --vcf $od/1_vcf/$key.recode.id.vcf --extract $od/2_plink/$key.prune.in --recode structure --out $od/3_structure/$key --allow-extra-chr";
+#进入3_structure ，从上步2_plink/$key.prune.in提取，生成
 &run_or_die($cmd);
 
 # structure分析
@@ -112,39 +113,49 @@ my $structure = "$od/3_structure/$key.recode.strct_in";
 #样本数
 my $sam = (split /\s+/, `wc -l $structure`)[0] ; 
 chomp $sam;
-$sam = $sam-2;#去除前两行（第一行是chr,第二行是数字）
+$sam = $sam-2;#去除前两行（$key.recode.strct_in文件的第一行是chr,第二行是数字）
 #位点数
 my $loci = `head -n 1 $structure \| perl -ne \'\@a=split; print scalar \@a\'` ; #列数，即pos数 ; \| \' \@ 需要转义 
 chomp $loci;
 
 mkdir("$od/4_result") unless -d "$od/4_result";
-open SH, ">$od/structure.sh" or die $!;
+open SH, ">$od/structure.sh" or die $!;  
+#填写structure.sh
+#/share/nas1/liy/MPD/wangfl/RawData/liushuqing/Project/BMK150519-P83_Mango/structure/structure -m /share/nas1/liy/MPD/wangfl/RawData/liushuqing/Project/BMK150519-P83_Mango/structure/mainparams_structure.cfg -e /share/nas1/liy/MPD/wangfl/RawData/liushuqing/Project/BMK150519-P83_Mango/structure/extraparams_structure.cfg -K 1 -i /share/nas1/liy/MPD/wangfl/RawData/liushuqing/Project/BMK150519-P83_Mango/structure_result/3_structure/Mango.recode.strct_in  -o /share/nas1/liy/MPD/wangfl/RawData/liushuqing/Project/BMK150519-P83_Mango/structure_result/4_result/Mango_structure_K_1_1  -L 71488 -N 284 -D 1
 for (my $i=1;$i <= $rep;$i++){  #前面定义了$rep ||= 3;
 	for($minK..$maxK){  # 前面定义了$minK ||= 1; $maxK ||= 11;
 		print SH "$Bin/structure -m $Bin/mainparams_structure.cfg -e $Bin/extraparams_structure.cfg -K $_ -i $structure  -o $od/4_result/$key\_structure_K_$_\_$i  -L $loci -N $sam -D $i\n";
 		#$Bin/extraparams_structure.cfg 脚本路径下面的文件
-		#-K $_  $_是
+		#-K $_  $_是从1到11（即$minK..$maxK）
 		# -o $od/4_result/$key\_structure_K_$_\_$i  \_转义
 	}
 }
 my $sh = "$od/structure.sh";
-&qsub($sh,$queue,$maxproc);
+&qsub($sh,$queue,$maxproc); #qsub子程序
+# my ($shfile, $queue, $ass_maxproc) = @_ ;
 
 #绘图
 my $file = "$od/2_plink/$key.nosex";
 mkdir("$od/5_final") unless -d "$od/5_final";
 $maxK = $maxK -1;
 $cmd = "/share/nas1/wangyt/software/R-3.4.3/bin/Rscript $Bin/structure.R $od/4_result/  $od/5_final/  $file $minK $maxK";
+#/structure.R R脚本  
+#$file = "$od/2_plink/$key.nosex"
 &run_or_die($cmd);
+
 my $pdf = "$od/5_final/*.pdf";
 $cmd = "cd $od/5_final/ && convert $pdf $key.png"; #convert是一个软件可以将pdf转换为png
 &run_or_die($cmd);
+
 $cmd = "/share/nas2/genome/bin/Rscript $Bin/deltaK.R $od/5_final/evannoMethodStructure.txt";
 &run_or_die($cmd);
 
 #结果整理
 mkdir("$od/6_backup",0755) unless -d "$od/6_backup";
 $cmd = "cd $od/5_final && cp *.pdf evannoMethodStructure.txt summariseQ.txt tabulateQ.txt $od/6_backup  &&  cp -r pop-both $od/6_backup/ && cd $od/6_backup && cd pop-both && rm *combined-aligned.txt";
+# *.pdf evannoMethodStructure.txt summariseQ.txt tabulateQ.txt
+# cp -r pop-both $od/6_backup/
+# rm *combined-aligned.txt (将里面的*combined-aligned.txt删除)
 &run_or_die($cmd);
 
 my $lnk = 0;
@@ -152,11 +163,11 @@ my %hash;
 open IN,"$od/5_final/evannoMethodStructure.txt" or die $!;
 while(<IN>){
 	chomp;
-	next if /deltaK/;
-	next if /NA/;
-	my ($bestk,$value) = (split /\s+/)[2,14];
+	next if /deltaK/;#（第一行末尾有deltaK，跳过此行）
+	next if /NA/; #有NA，即没有值的行
+	my ($bestk,$value) = (split /\s+/)[2,14];#空格分割，提取第2（K），14列（deltaK）
 	$hash{$value} = $bestk;
-	$lnk = $value if $value > $lnk;	
+	$lnk = $value if $value > $lnk;	 #$lnk是$value最大
 }
 close IN;
 my $bestk = $hash{$lnk};
@@ -230,7 +241,7 @@ sub show_log()
         return ($time) ;
 }
 
-sub qsub()
+sub qsub() # &qsub($sh,$queue,$maxproc);my $sh = "$od/structure.sh";
 {
         my ($shfile, $queue, $ass_maxproc) = @_ ;
         if (`hostname` =~ /cluster/){
