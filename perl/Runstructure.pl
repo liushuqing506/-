@@ -28,7 +28,7 @@ GetOptions(
 	"h|?" => \&help,
 ) || &help;
 
-&help unless ($vcf && $key && $od ); #必须有的参数
+&help unless ($vcf && $key && $od ); #必须有的参数,没有提示help
 
 sub help
 {
@@ -58,10 +58,10 @@ sub help
 	exit;
 }
 
-mkdir($od,0755) unless -d $od;
-$od = abs_path($od);
-$vcf = abs_path($vcf);
-$maf ||= 0.05;
+mkdir($od,0755) unless -d $od;如果没有$od，则chainman
+$od = abs_path($od); #全路径
+$vcf = abs_path($vcf);#全路径
+$maf ||= 0.05; 或者
 $int ||= 0.8;
 $minK ||= 1;
 $maxK ||= 11;
@@ -78,11 +78,12 @@ print "\nStart Time :[$Time_Start]\n\n";
 #vcftools文件进行过滤
 mkdir("$od/1_vcf",0755) unless -d "$od/1_vcf"; #创建文件夹
 my $cmd = "$Bin/vcftools --vcf $vcf --out $od/1_vcf/$key --recode --maf $maf --max-missing $int  --remove-indels --min-alleles 2 --max-alleles 2";
-&run_or_die($cmd);
+#$Bin是脚本所在位置
+&run_or_die($cmd);#子程序，运行上面的命令
 
 #基于LD过滤连锁位点，保留中性位点
-open IN,"$od/1_vcf/$key.recode.vcf" or die $!;
-open OUT,">$od/1_vcf/$key.recode.id.vcf" or die $!;
+open IN,"$od/1_vcf/$key.recode.vcf" or die $!; #前面生成了$key.recode.vcf
+open OUT,">$od/1_vcf/$key.recode.id.vcf" or die $!; #$key.recode.id.vcf
 while(<IN>){
 	chomp;
 	next if /^$/;
@@ -98,9 +99,10 @@ while(<IN>){
 close IN;
 close OUT;
 
-mkdir("$od/2_plink") unless -d "$od/2_plink";
-mkdir("$od/3_structure") unless -d "$od/3_structure";
+mkdir("$od/2_plink") unless -d "$od/2_plink"; #生成$od/2_plink文件夹
+mkdir("$od/3_structure") unless -d "$od/3_structure"; #生成$od/3_structure
 $cmd = "cd $od/2_plink && $Bin/plink --noweb --vcf $od/1_vcf/$key.recode.id.vcf --indep-pairwise 212 5  0.2 --out $key --allow-extra-chr ";
+#
 &run_or_die($cmd);
 $cmd = "cd $od/3_structure &&  $Bin/plink --noweb --vcf $od/1_vcf/$key.recode.id.vcf --extract $od/2_plink/$key.prune.in --recode structure --out $od/3_structure/$key --allow-extra-chr";
 &run_or_die($cmd);
@@ -112,14 +114,17 @@ my $sam = (split /\s+/, `wc -l $structure`)[0] ;
 chomp $sam;
 $sam = $sam-2;#去除前两行（第一行是chr,第二行是数字）
 #位点数
-my $loci = `head -n 1 $structure \| perl -ne \'\@a=split; print scalar \@a\'` ; #列数，即pos数
+my $loci = `head -n 1 $structure \| perl -ne \'\@a=split; print scalar \@a\'` ; #列数，即pos数 ; \| \' \@ 需要转义 
 chomp $loci;
 
 mkdir("$od/4_result") unless -d "$od/4_result";
 open SH, ">$od/structure.sh" or die $!;
-for (my $i=1;$i <= $rep;$i++){
-	for($minK..$maxK){
+for (my $i=1;$i <= $rep;$i++){  #前面定义了$rep ||= 3;
+	for($minK..$maxK){  # 前面定义了$minK ||= 1; $maxK ||= 11;
 		print SH "$Bin/structure -m $Bin/mainparams_structure.cfg -e $Bin/extraparams_structure.cfg -K $_ -i $structure  -o $od/4_result/$key\_structure_K_$_\_$i  -L $loci -N $sam -D $i\n";
+		#$Bin/extraparams_structure.cfg 脚本路径下面的文件
+		#-K $_  $_是
+		# -o $od/4_result/$key\_structure_K_$_\_$i  \_转义
 	}
 }
 my $sh = "$od/structure.sh";
