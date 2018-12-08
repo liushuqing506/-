@@ -112,7 +112,7 @@ my $ana_step;
 my @step=split/\,/,$assign;
 print "assign step for run : @step\n";
 #@step=@step;
-my @all=sort {$a<=>$b} @step;
+my @all=sort {$a<=>$b} @step; #从小到大排序
 for (my $st=0;$st<@step ;$st++)
 {
 	if ($step[$st]==1)
@@ -183,7 +183,7 @@ for (my $st=0;$st<@step ;$st++)
 }
 if (@reseq_step)
 {
-	$ana_step=join "\,",@reseq_step;
+	$ana_step=join "\,",@reseq_step; #以，分割重测序的步骤
 }
 
 our $pipeline_log_dir= "$cfg_hash{analysis_dir}" ;
