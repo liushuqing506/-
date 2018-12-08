@@ -100,3 +100,4 @@ $ARGV[3]是a
 sed -i '1i<Covariate>' $od/6_backup/$key.best_K$bestk.txt #在文件的一行插入<Covariate>，1i是第一行
 15
 glob--读取一个目录下的所有文件
+my @sam_num = glob('/home/lsq/320G/test/*');
