@@ -4,12 +4,12 @@ use strict;
 use Cwd;
 use Getopt::Long;
 use Data::Dumper;
-use File::Basename qw(basename dirname);
-use FindBin qw($Bin $Script);
+use File::Basename qw(basename dirname);#文件路径
+use FindBin qw($Bin $Script);#脚本路径
 
-my $programe_dir = basename($0);
+my $programe_dir = basename($0);  
 my $path         = dirname($0);
-
+#$0一般指脚本，basename($0)脚本的名字，dirname($0)脚本的路径
 my $ver    = "1.0";
 my $Writer = "Yangzj <yangzj\@biomarker.com.cn>";
 my $Data   = "2012/9/12";
@@ -62,9 +62,9 @@ $Time_Start = sub_format_datetime(localtime(time()));
 print "\nStart $programe_dir Time :[$Time_Start]\n\n";
 #######################################################################################
 $minK ||= 2;$maxK ||= 10;
-my $hostname=`hostname`;chomp $hostname;
-$snplist = &ABSOLUTE_DIR($snplist);
-mkdir $od if (!-d $od);$od = &ABSOLUTE_DIR($od);
+my $hostname=`hostname`;chomp $hostname;# 集群名
+$snplist = &ABSOLUTE_DIR($snplist); # $snplist绝对路径
+mkdir $od if (!-d $od);$od = &ABSOLUTE_DIR($od);#
 $minMAF ||= 0.05;
 $minInt ||= 0.5;
 $C ||= 0.01;
@@ -82,6 +82,7 @@ open (SH,">$admixturesh") || die "$!";
 for ($minK..$maxK){
 	#print SH "$Bin/bin/admixture -C $C --cv $admixturefile $_ &&\n";
 	print SH "$Bin/bin/admixture -C $C --cv $admixturefile $_ >$od/admixture/cv\_$_\.log\n";
+	#$_ 是从$minK..$maxK
 }
 close SH;
 
@@ -154,7 +155,7 @@ sub ABSOLUTE_DIR #$pavfile=&ABSOLUTE_DIR($pavfile);
 	if(-f $in){
 		my $dir=dirname($in);
 		my $file=basename($in);
-		chdir $dir;$dir=`pwd`;chomp $dir;
+		chdir $dir;$dir=`pwd`;chomp $dir; #chdir 函数来切换当期目录
 		$return="$dir/$file";
 	}elsif(-d $in){
 		chdir $in;$return=`pwd`;chomp $return;
