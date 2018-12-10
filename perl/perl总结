@@ -115,3 +115,6 @@ foreach my $pro (keys %project_hash){}
 18
 foreach my $filedir (@findall) {}
 逐一提取数组
+19
+XML 被设计用来传输和存储数据。
+HTML 被设计用来显示数据。
