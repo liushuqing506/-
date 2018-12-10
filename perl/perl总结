@@ -109,3 +109,6 @@ use File::Basename qw(basename dirname);
 my $sam_num = '/home/lsq/320G/test/123.txt';
 basename($sam_num) 为123.txt
 dirname($sam_num) 为/home/lsq/320G/test/
+17
+foreach my $pro (keys %project_hash){}
+逐一提取哈希的键
