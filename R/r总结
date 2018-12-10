@@ -1,5 +1,9 @@
+安装R
 sudo apt-get update
 sudo apt-get install r-base
 
 R画图
 https://www.jianshu.com/p/03719d7c207f
+
+安装R库rJava
+install.packages("rJava")
