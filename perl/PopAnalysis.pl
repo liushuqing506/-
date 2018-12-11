@@ -121,10 +121,12 @@ mkdir("$od/genotype",0755) unless -d "$od/genotype";
 my $cmd;
 if(!-e "$od/genotype/$key.recode.vcf"){
 	$cmd = "$Bin/software/vcftools --vcf $vcf --maf $minMAF --max-missing $minInt --min-alleles 2 --max-alleles 2 --recode --out $od/genotype/$key\n";
+	#生成genotype/$key.recode.vcf
 	&run_or_die($cmd);
 }
 if(!-e "$od/genotype/$key.snplist"){
 	$cmd = "perl $Bin/genotype/vcf_to_snplist_v1.2.pl -i $od/genotype/$key.recode.vcf -o $od/genotype/$key.snplist -ref 0";
+	#根据genotype/$key.recode.vcf生成genotype/$key.snplist -ref
 	&run_or_die($cmd);
 }
 
@@ -148,6 +150,7 @@ if(defined $tree){
 if(defined $pca){
 	mkdir("$od/pca",0755) unless -d "$od/pca";
 	$cmd .= "perl $Bin/PCA/v1.0/PCA_analysis_v1.0.pl -vcf $od/genotype/$key.recode.vcf -group $group -od $od/pca -key $key -maf $minMAF -int $minInt\n";
+	#生成PCA
 }
 
 #####################################################ld
