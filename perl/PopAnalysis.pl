@@ -198,10 +198,10 @@ if(defined $select){
 	}
 }
 
-open SH,">$od/Work_sh/pop.sh" or die $!;
-print SH "$cmd\n";
+open SH,">$od/Work_sh/pop.sh" or die $!;  
+print SH "$cmd\n"; #将PCA ，LD ，select的主流程全部写入Work_sh/pop.sh
 close SH;
-&qsub("$od/Work_sh/pop.sh",$queue,$maxproc);
+&qsub("$od/Work_sh/pop.sh",$queue,$maxproc); #投递全部
 
 #########################################################deal with tree
 if(defined $tree){
@@ -215,7 +215,7 @@ if(defined $tree){
 
 ########################################################## extract the result
 $cmd = "";
-$cmd = "perl $Bin/tools/Extract_result_v1.1.pl -id $od/ -k $key -group $group\n";
+$cmd = "perl $Bin/tools/Extract_result_v1.1.pl -id $od/ -k $key -group $group\n";#提取结果
 &run_or_die($cmd);
 
 ########################################################## web_report
