@@ -255,13 +255,13 @@ sub sub_format_datetime #Time calculation subroutine
 sub run_or_die()
 {
         my ($cmd) = @_ ;
-        &show_log($cmd);
+        &show_log($cmd); #2018-12-11 16:45:00:    /share/nas1/wangyt/script/SVN/Population/population/software/vcftools --vcf
         my $flag = system($cmd) ;
-        if ($flag != 0){
+        if ($flag != 0){ #$cmd执行成功则返回0
                 &show_log("Error: command fail: $cmd");
                 exit(1);
         }
-        &show_log("done.");
+        &show_log("done."); #2018-12-11 16:56:22:    done.
         return ;
 }
 
@@ -270,7 +270,7 @@ sub show_log()
         my ($txt) = @_ ;
         my $time = time();
         my $Time = &sub_format_datetime(localtime($time));
-        print "$Time:\t$txt\n" ;
+        print "$Time:\t$txt\n" ;  #2018-12-11 16:56:22:    done.
         return ($time) ;
 }
 
