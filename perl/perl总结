@@ -16,6 +16,7 @@ use Cwd qw(abs_path getcwd);
 my $abs = abs_path(getcwd()); 
 print "运行脚本时所在的路径:$abs\n"; 
 2.
+正则表达式：右边的模式匹配左边的字符串
 my %CDS;
 while (<IN>) { 
    chomp;
