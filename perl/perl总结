@@ -119,3 +119,23 @@ foreach my $filedir (@findall) {}
 19
 XML 被设计用来传输和存储数据。
 HTML 被设计用来显示数据。
+20
+grep
+my (@group,%hash);
+@group=(1,12,3,12,4,5,6,23,3);
+@group = grep {++$hash{$_} < 2} @group;
+print "@group\t";
+print "\n";
+for my $a (keys %hash)
+{
+	print "$a\t";
+}
+print "\n";
+for my $a (values %hash)
+{
+	print "$a\t";
+}
+结果：
+1 12 3 4 5 6 23	
+3	1	4	5	23	6	12	
+2	1	1	1	1	1	2	
