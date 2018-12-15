@@ -1,1 +1,4 @@
 sudo apt install python3-pip
+pip3 install numpy==1.13.3
+pip3 install --upgrade pip(pip3升级)（一旦升级后pip默认改为python3下面的pip）
+pip2 -V 为python的pip
