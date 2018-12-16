@@ -1,1 +1,20 @@
 /var/lib/mysql 数据存放位置
+create database test;创建数据库test
+show databases;查看所有数据库
+use test;进入数据库test
+show tables; 查看test数据库里所有表
+create table tb1(nid int,name varchar(20));在test里创建表tb（里面存入两列nid,name）
+insert into tb1(nid,name) values(2,"eric");往表tb1里面写入数据
+desc user;查看user表中的所有列（host,user,...）
+select host,user from user;从user表中选出host,user列信息
+
+create user lsq@localhost identified by "123";创建新用户（lsq,密码123）
+set password for lsq@localhost = Password("123456");修改用户lsq的密码
+drop user xiaohu@localhost; 删除用户xiaohu
+mysql -u lsq -p （-h 是ip,不加-h，默认是localhost）
+
+权限
+grant select on test.tb1 to lsq@localhost; 
+将test数据库里面的tb1表 给用户lsq授权select(查看)，test.*test所有的表，*.* 所有数据库的所有表
+grant select，insert on test.tb1 to lsq@localhost;（查看，插入的权限）
+
