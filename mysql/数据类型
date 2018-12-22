@@ -1,0 +1,32 @@
+数据类型：数值，时间和字符串
+数值： （默认都是有符号的类型）create table tb11(id int unsigned);也可以设置为无符号类型
+bit 二进制
+
+tinyint 有符号（有正数有负数）：-128～127;无符号（只有正数）：0～255
+samllint
+int
+bigint
+四个范围大小不一样
+
+decimal  --精确的 decimal（6，2）保留6位有效数字，小数点后有2位
+FLOAT
+DOUBLE
+
+字符串：
+#定长（固定长度） 查找速度快，浪费空间
+char
+#变长（最大） 查找速度慢，节省空间
+varchar
+text
+mediumtext
+longtext
+
+时间
+DATE YYYY-MM-DD
+TIME HH:MM:SS
+YEAR YYYY
+TIMESTAMP 
+
+enum 枚举
+
+
