@@ -1,4 +1,5 @@
 /var/lib/mysql 数据存放位置
+
 create database test;创建数据库test
 drop database test;删除数据库test
 show databases;查看所有数据库
@@ -6,17 +7,18 @@ use test;进入数据库test
 show tables; 查看test数据库里所有表
 create table tb1(nid int,name varchar(20));在test里创建表tb（里面存入两列nid,name）
 drop table tb1;直接删除表tb1
-delete from tb1;清空表tb1的内容
+delete from tb1;清空表tb1的内容，自增列保存记忆 ; truncate table tb1;清空tb1的内容，自增列不保存记忆
 insert into tb1(nid,name) values(2,"eric");往表tb1里面写入数据
 desc tb1;只显示tb1表中的所有列的<标题>（host,user,...） 
 select host,user from tb1;从tb1表中选出host,user列信息   查看全部表内容select * from tb1
+update tb1 set part_nid=2;修改tb1表里面part_nid列全部变为2
 
 create user lsq@localhost identified by "123";创建新用户（lsq,密码123）
 set password for lsq@localhost = Password("123456");修改用户lsq的密码
 drop user xiaohu@localhost; 删除用户xiaohu
 mysql -u lsq -p （-h 主机名是ip,不加-h，默认是localhost）例如：mysql -u lsq -h 192.168.1.11 -p  （-P 3306 <默认端口>）
 
-权限 SELECT,INSERT,UPDATE,DELETE,CREATE,DROP
+权限 SELECT,INSERT,UPDATE,DELETE,CREATE,DROP，alter
 grant select on test.tb1 to lsq@localhost; 
 将test数据库里面的tb1表 给用户lsq授权select(查看)，test.* ：test所有的表，*.* ： 所有数据库的所有表
 grant select，insert on test.tb1 to lsq@localhost;（查看，插入的权限）
@@ -25,3 +27,7 @@ grant create on test.* to lsq@localhost; 用户lsq可以对test库下面创建�
 create table tb4( nid int not null auto_increment primary key, num int)engine=innodb default charset=utf8;
 auto_increment 自增列（数字类型） 必须后面加primary key （一张表只能有一个主键，一般也是自增的，唯一不重复，不能为null，<一般将自增列设置为主键>）
 唯一列可以为null（与主键列的区别） ; 可以多列组成主键
+
+外键
+alter table userinfo add constraint fk_u_p foreign key userinfo(part_nid) references part(nid);
+fk_u_p是自己起的
