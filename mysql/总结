@@ -8,7 +8,7 @@ create table tb1(nid int,name varchar(20));在test里创建表tb（里面存入�
 drop table tb1;直接删除表tb1
 delete from tb1;清空表tb1的内容
 insert into tb1(nid,name) values(2,"eric");往表tb1里面写入数据
-desc tb1;查看tb1表中的所有列（host,user,...） 
+desc tb1;只显示tb1表中的所有列的<标题>（host,user,...） 
 select host,user from tb1;从tb1表中选出host,user列信息   查看全部表内容select * from tb1
 
 create user lsq@localhost identified by "123";创建新用户（lsq,密码123）
@@ -16,8 +16,12 @@ set password for lsq@localhost = Password("123456");修改用户lsq的密码
 drop user xiaohu@localhost; 删除用户xiaohu
 mysql -u lsq -p （-h 主机名是ip,不加-h，默认是localhost）例如：mysql -u lsq -h 192.168.1.11 -p  （-P 3306 <默认端口>）
 
-权限
+权限 SELECT,INSERT,UPDATE,DELETE,CREATE,DROP
 grant select on test.tb1 to lsq@localhost; 
-将test数据库里面的tb1表 给用户lsq授权select(查看)，test.*test所有的表，*.* 所有数据库的所有表
+将test数据库里面的tb1表 给用户lsq授权select(查看)，test.* ：test所有的表，*.* ： 所有数据库的所有表
 grant select，insert on test.tb1 to lsq@localhost;（查看，插入的权限）
+grant create on test.* to lsq@localhost; 用户lsq可以对test库下面创建表
 
+create table tb4( nid int not null auto_increment primary key, num int)engine=innodb default charset=utf8;
+auto_increment 自增列（数字类型） 必须后面加primary key （一张表只能有一个主键，一般也是自增的，唯一不重复，不能为null，<一般将自增列设置为主键>）
+唯一列可以为null（与主键列的区别） ; 可以多列组成主键
