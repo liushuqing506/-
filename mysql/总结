@@ -12,6 +12,9 @@ insert into tb1(nid,name) values(2,"eric");往表tb1里面写入数据
 desc tb1;只显示tb1表中的所有列的<标题>（host,user,...） 
 select host,user from tb1;从tb1表中选出host,user列信息   查看全部表内容select * from tb1
 update tb1 set part_nid=2;修改tb1表里面part_nid列全部变为2
+alter table tb5 add part_id int;给表tb5增加一列part_id
+alter tbale tb5 drop part_id;给表tb5删除一列part_id
+alter table tb5 change part_id part varchar(20);修改tb5中列名：part_id 改为 part 类型同时修改为varchar(20)
 
 create user lsq@localhost identified by "123";创建新用户（lsq,密码123）
 set password for lsq@localhost = Password("123456");修改用户lsq的密码
@@ -31,3 +34,4 @@ auto_increment 自增列（数字类型） 必须后面加primary key （一张�
 外键
 alter table userinfo add constraint fk_u_p foreign key userinfo(part_nid) references part(nid);
 fk_u_p是自己起的
+也可以在创建表的同时就添加外键constraint fk_u_p foreign key (part_nid) references part(nid);
