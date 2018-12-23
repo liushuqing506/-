@@ -69,7 +69,7 @@ while (<IN>)
 	chomp;
 	next if ($_=~/\#/);#有#的行时，跳过
 	next if ($_=~/^\s*$/);#开头时空字符或者$时，跳过
-	my @data=split/\s+/,$_;#以空格分割
+	my @data=split /\s+/,$_;#以空格分割
 	$cfg_hash{$data[0]}=$data[1] if ($_=~/^chr_id/);#如果开头时chr_id，存入哈希
 	$cfg_hash{$data[0]}=$data[1] if ($_=~/^analysis_dir/);#如果开头时analysis_dir，存入哈希
 	$cfg_hash{$data[0]}=$data[1] if ($_=~/^extra_fa/);
