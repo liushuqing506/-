@@ -9,6 +9,9 @@ create table tb1(nid int,name varchar(20));在test里创建表tb（里面存入�
 drop table tb1;直接删除表tb1
 delete from tb1;清空表tb1的内容，自增列保存记忆 ; truncate table tb1;清空tb1的内容，自增列不保存记忆
 insert into tb1(nid,name) values(2,"eric");往表tb1里面写入数据
+insert into tb1(nid,name) values(2,"eric"),(3,"alxs"); 可增加多条
+insert into tb31(name,age) select caption,genger from tb32; tb32表的 caption,genger两列添加到tb31(name,age)中
+
 desc tb1;只显示tb1表中的所有列的<标题>（host,user,...） 
 select host,user from tb1;从tb1表中选出host,user列信息   查看全部表内容select * from tb1
 update tb1 set part_nid=2;修改tb1表里面part_nid列全部变为2
@@ -40,3 +43,39 @@ auto_increment 自增列（数字类型） 必须后面加primary key （一张�
 alter table userinfo add constraint fk_u_p foreign key userinfo(part_nid) references part(nid);
 fk_u_p是自己起的（形式：fk_从表_主表）
 也可以在创建表的同时就添加外键constraint fk_u_p foreign key (part_nid) references part(nid);
+
+增：
+insert into tb1(nid,name) values(2,"eric");往表tb1里面写入数据
+insert into tb1(nid,name) values(2,"eric"),(3,"alxs"); 可增加多条
+insert into tb31(name,age) select caption,genger from tb32; tb32表的 caption,genger两列添加到tb31(name,age)中
+删：
+delete from tb31 where nid=1; 删除tb31表中，nid是1的行
+delete from tb31 where name="kaka";字符串类型要加“”
+delete from tb31 where name="fafa" and nid=3;
+delete from tb31 where name="fafa" or nid=3;
+delete from tb31 where nid>1;
+改：
+update tb31 set age=1;将age列全部变为1
+update tb31 set age=19 where nid=3; 将nid=3列的age变为19
+update tb31 set age=8,name="uaua" where nid>3;
+查：
+select * from tb31;
+select * from tb31 where nid>3 and name="kaka";
+select name,age from tb31;
+select * from tb31 where id in (11,12);
+select * from tb31 where id in (select nid from tb32);
+其它:
+  通配符
+  select * from tb31 where name like "ale%";通配多个字符
+  select * from tb31 where name like "ale_";通配1个字符
+  limit
+  select * from tb31 limit 1,2;从第1行开始，取2行 （0是第1行）
+  select * from tb31 limit 2 offset 1;从第1行开始，取2行，等同上面，推荐此法
+  order
+  select * from tb31 order by age asc; asc从小到大排;desc从大到小排
+  select * from tb31 order by age asc,nid desc;当age相同时，（默认nid从小到大），如果想要nid从大到小
+  
+
+
+
+
