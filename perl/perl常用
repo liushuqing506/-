@@ -4,3 +4,10 @@ les 1.txt | perl -lne '@var=split("\t",$_,3);print "$var[2]"'
 2.
 统计文件的列数
 les 1.txt |head -n 1 |perl -lane 'print scalar @F'
+awk -F "\t" '{print NF;exit}' ../test1/snplist
+3.
+uniq -c (唯一的项计数)
+4.
+tr "ATCG" "TAGC" 将里面的碱基替换
+rev反转序列
+
