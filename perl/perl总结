@@ -145,3 +145,6 @@ use Getopt::Std; (https://www.cnblogs.com/emanlee/archive/2011/11/20/2255786.htm
 getopts("od:fF",\%options);
 [ 解释一下"od:fF"，d后有冒号，表示-d后面要跟参数。ofF后面没有冒号，表示-o -f -F后面不带参数。
 而且-d后所跟的参数分别赋给变量$options{d}。对于变量$options{o},$options{f},$options{F}，若命令行加了-o，则$options{o}=1，否则为0。-f,-F类似]
+22
+自增
+les chrlist |perl -lane '$a++;print "$F[0]\t$a"'
