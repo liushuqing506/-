@@ -28,6 +28,25 @@ django-admin.py startproject HelloWorld (新建一个项目HelloWorld，)
     HelloWorld/urls.py: 该 Django 项目的 URL 声明; 一份由 Django 驱动的网站"目录"。
     HelloWorld/wsgi.py: 一个 WSGI 兼容的 Web 服务器的入口，以便运行你的项目。
  ********************************
+ 在项目myweb路径下创建app
+ django-admin.py startapp myapp
+ ── myweb
+    ├── manage.py
+    ├── myapp
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── __init__.py
+    │   ├── migrations
+    │   │   └── __init__.py
+    │   ├── models.py
+    │   ├── tests.py
+    │   └── views.py
+    └── myweb
+        ├── __init__.py
+        ├── settings.py
+        ├── urls.py
+        └── wsgi.py
+ ********************************
  进入 HelloWorld 目录,python manage.py runserver 查看本机IP
 January 12, 2019 - 00:09:55
 Django version 2.1.5, using settings 'HelloWorld.settings'
