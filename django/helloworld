@@ -80,6 +80,7 @@ MVC的全名是Model View Controller，是模型(model)－视图(view)－控制�
 ******************
 <h1></h1>这个是用来表示字体大小的标签,<h1>Hello!</h1>显示的Hello就是一号字
 类同还有<h2></h2>,<h3></h3>等等。
+例如：<font size="3" color="red">This is some text!</font> 红色三号字体
 ******************
 2.
 接下来我们需要向Django说明模板文件的路径，修改HelloWorld/settings.py，修改 TEMPLATES 中的 DIRS 为[BASE_DIR+"/templates",]，如下所示:
@@ -109,6 +110,7 @@ def hello(request):
     return render(request, 'hello.html', context)
 可以看到，我们这里使用render来替代之前使用的HttpResponse。render还使用了一个字典context作为参数。
 context 字典中元素的键值 "hello" 对应了模板中的变量 "{{ hello }}"。
+
 
   
 
