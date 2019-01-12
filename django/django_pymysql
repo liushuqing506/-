@@ -1,0 +1,95 @@
+https://www.cnblogs.com/stuqx/p/7127980.html
+1.
+django-admin startproject myweb （创建项目myweb）
+cd myweb
+django-admin startapp myapp（建立项目下属APP）
+项目下面的settings.py里面的
+DATABASES = 默认数据库是sqllite
+可以修改为mysql数据库
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'test', # root 用户下面的test数据库，必须已经创建了test数据库，后面才能导入表，（否则后面无法导入）
+        'USER': 'root', #mysql用户
+        'PASSWORD': '123456', 
+        'HOST': 'localhost',#用户后缀
+        'PORT': '3306',
+    }
+}
+
+INSTALLED_APPS = (
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'myapp', #加入新的app
+)
+2.
+APP下的models.py文件中加入表结构（django中之所以把表结构在自身文件中定义，是为了在其他文件中可直接引用表结构进行数据库操作，不用频繁刷新数据表获取表结构）
+from django.db import models
+
+# Create your models here.
+
+class book_info(models.Model):
+    fromuser = models.CharField(max_length=30, default='WYS')
+    fromsite = models.CharField(max_length=50)
+    bookname = models.CharField(max_length=50)
+    #updatetime = models.DateTimeField()
+    #lastchapter = models.CharField(max_length=100)
+
+class site_info(models.Model):
+    sitename = models.CharField(max_length=50)
+    bookname = models.CharField(max_length=50)
+    url = models.CharField(max_length=200)
+    updatetime = models.DateTimeField()
+    lastchapter = models.CharField(max_length=100)
+    
+ 3.
+ 将models.py中的数据库表结构同步到MYSQL中
+ python manage.py migrate #创建表结构
+ python manage.py makemigrations myapp #告诉django，myapp中的表结构有更新
+ python manage.py migrate myapp  #执行myapp中的表结构到mysql中
+ 数据库中的表名为myapp_book_info,myapp_site_info，但django代码中调用时的表名为models.py中定义的表名book_info，site_info
+| auth_group                 |
+| auth_group_permissions     |
+| auth_permission            |
+| auth_user                  |
+| auth_user_groups           |
+| auth_user_user_permissions |# 其它都是默认表
+| django_admin_log           |
+| django_content_type        |
+| django_migrations          |
+| django_session             |
+| myapp_book_info            | ## models创建的
+| myapp_site_info            | ## models创建的
+
+4.
+数据表操作-增
+在models.py中添加内容（之前已经创建好了表头[fromuser,fromsite,bookname]了）
+from myapp.models import book_info
+  方法一：
+  test1 = book_info(fromuser='testuser',fromsite='testsite',bookname='testbookname')
+  test1.save()
+  方法二：
+  book_info.objects.create(fromuser='testuser',fromsite='testsite',bookname='testbookname')
+修改完后执行如下，mysql数据库对应的表就添加内容了
+python manage.py migrate myapp
+
+数据库操作-删
+
+
+数据库操作-改
+  方式一
+  test1 = book_info.objects.get(bookname='testbookname')
+  test1.bookname = 'book1'
+  test1.fromuser = 'user1'
+  test1.save
+  方式二
+  book_info.objects.filter(bookname='testbookname').update(fromuser='user1')
+  book_info.objects.all().update(fromuser='user1')
+
+
+    
+ 
