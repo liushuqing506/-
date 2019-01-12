@@ -1,0 +1,59 @@
+https://www.cnblogs.com/liaocheng/p/5218843.html
+第一部分
+1.
+[root@solar django]# python
+Python 3.7.0 (default, Jun 28 2018, 13:15:42)
+[GCC 4.8.0] on linux2
+Type "help", "copyright", "credits" or "license" for more information.
+>>> import django
+>>> django.VERSION
+(2, 1, 5, 'final', 0)
+2.
+django-admin.py startproject HelloWorld (新建一个项目HelloWorld，)
+[root@solar ~]# cd HelloWorld/
+[root@solar HelloWorld]# tree (HelloWorld/里面的结构)
+.
+|-- HelloWorld
+|   |-- __init__.py
+|   |-- settings.py
+|   |-- urls.py
+|   `-- wsgi.py
+`-- manage.py
+********************************************************************
+目录说明：
+    HelloWorld: 项目的容器。
+    manage.py: 一个实用的命令行工具，可让你以各种方式与该 Django 项目进行交互。
+    HelloWorld/__init__.py: 一个空文件，告诉 Python 该目录是一个 Python 包。
+    HelloWorld/settings.py: 该 Django 项目的设置/配置。
+    HelloWorld/urls.py: 该 Django 项目的 URL 声明; 一份由 Django 驱动的网站"目录"。
+    HelloWorld/wsgi.py: 一个 WSGI 兼容的 Web 服务器的入口，以便运行你的项目。
+ ********************************
+ 进入 HelloWorld 目录,python manage.py runserver 查看本机IP
+January 12, 2019 - 00:09:55
+Django version 2.1.5, using settings 'HelloWorld.settings'
+Starting development server at http://127.0.0.1:8000/  访问地址为http://127.0.0.1:8000/
+python manage.py runserver 0.0.0.0:8000   启动服务器0.0.0.0:8000（服务器地址），如果successful 说明正常启动服务器
+0.0.0.0让其它电脑可连接到开发服务器，8000为端口号。如果不说明，那么端口号默认为8000。
+3.
+  3.1
+  HelloWorld 目录(即wsgi.py所在目录)新建一个 view.py 文件，并输入代码：(view相当于一个模块，hello相当于模块里面的函数)
+  from django.http import HttpResponse
+  def hello(request):
+    return HttpResponse("Hello world ! ")
+  3.2
+  接着，绑定 URL 与视图函数。打开 urls.py 文件，删除原来代码，将以下代码复制粘贴到 urls.py 文件中：
+  from django.conf.urls import url
+  from . import view  (从urls.py当前目录下调用view模块)
+  urlpatterns = [
+      url(r'^hello/$',view.hello),  #^hello/$  是访问地址后缀，view.hello调用view库的hello函数  
+                  ]
+第二部分
+1.
+Django 模板(以上我们使用 django.http.HttpResponse() 来输出"Hello World！"。该方式将数据与视图混合在一起，不符合Django的MVC思想。)
+
+
+  
+
+
+
+
