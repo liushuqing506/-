@@ -1,0 +1,60 @@
+http://www.cnblogs.com/yangmv/p/5327477.html
+1.
+创建model表（mkdels.py）
+from django.db import models
+# Create your models here.
+class book_info(models.Model):
+  fromuser = models.CharField(max_length=30, default='WYS')
+  fromsite = models.CharField(max_length=50)
+  bookname = models.CharField(max_length=50)
+2.
+注册APP，settings添加app
+INSTALLED_APPS = [
+  'django.contrib.admin',
+  'django.contrib.auth',
+  'django.contrib.contenttypes',
+  'django.contrib.sessions',
+  'django.contrib.messages',
+  'django.contrib.staticfiles',
+  'myapp',  ###
+ ]
+3.
+生成相应的表
+python manage.py makemigrations
+python manage.py migrate
+4.
+admin后台注册表
+from django.contrib import admin
+# Register your models here.
+from myapp import models  # 从myapp 导 models
+admin.site.register(models.book_info) # 添加models.book_info表
+5.
+python manage.py createsuperuser 创建用户 ,会提示填写新用户名，两次新密码
+登录http://127.0.0.1:8000/admin/ 用户，密码
+下面有myapp 以及表book_info，可以添加信息，
+6.
+myweb/urls.py添加如下代码：
+from django.contrib import admin
+from django.urls import path
+from django.conf.urls import url
+from myapp import views
+
+urlpatterns = [
+    path(r'admin/', admin.site.urls), #通过admin,可以给表添加新的内容
+    url(r'^show/',views.show), #可以提供要查询的表信息（通过MVC模式实现）
+]
+7.
+myapp/views.py添加如下代码：
+from django.shortcuts import render
+# Create your views here.
+def show(request):
+        from myapp import models
+        user_list = models.book_info.objects.all()  #将book_info表中信息全部
+        return render(request,"show.html",{'user_list':user_list}) 
+
+8.
+templates/show.html (可以添加字体，颜色，格式等)
+
+http://127.0.0.1:8000/show/ 网页端显示结果
+
+
