@@ -6,6 +6,7 @@ show databases;查看所有数据库
 use test;进入数据库test
 show tables; 查看test数据库里所有表
 create table tb1(nid int,name varchar(20));在test里创建表tb（里面存入两列nid,name）
+rename table 表名 to 新表名;
 drop table tb1;直接删除表tb1
 delete from tb1;清空表tb1的内容，自增列保存记忆 ; truncate table tb1;清空tb1的内容，自增列不保存记忆
 insert into tb1(nid,name) values(2,"eric");往表tb1里面写入数据
@@ -74,6 +75,8 @@ select * from tb31 where id in (select nid from tb32);
   order
   select * from tb31 order by age asc; asc从小到大排;desc从大到小排
   select * from tb31 order by age asc,nid desc;当age相同时，（默认nid从小到大），如果想要nid从大到小
+  
+  
   
 
 
