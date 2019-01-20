@@ -1,0 +1,9 @@
+1.
+import os.path
+Bin=os.path.split(os.path.realpath(__file__))[0] #脚本所在的全路径
+Bin=os.path.split(os.path.realpath(__file__)) #('/media/lsq/89a29fd7-6176-4096-a1fc-414c783861a8/320G/test/t5', 't5.py') 0是全路径;1是脚本全称
+创建路径
+analysis_dir = "/home/lsq/320G/test/t5/test"
+web_dir = analysis_dir;
+if not os.path.exists(web_dir):
+    os.mkdir(web_dir)
