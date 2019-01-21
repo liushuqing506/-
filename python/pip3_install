@@ -4,3 +4,6 @@ pip3 install numpy==1.13.3
 pip3 install --upgrade pip(pip3升级)（一旦升级后pip默认改为python3下面的pip）
 pip2 -V 为python的pip
 pip uninstall matplotlib (卸载)
+
+安装pip3
+https://www.cnblogs.com/wenchengxiaopenyou/p/5709218.html
