@@ -1,3 +1,6 @@
+经典教程
+http://baijiahao.baidu.com/s?id=1600142537998401332&wfr=spider&for=pc
+1.
 a = [range(1,5),range(5,9),range(9,13)]  #a为嵌套列表 range(1,5)等同[1,2,3,4]
 b = np.array(a) #从嵌套列表转换为多维数组 
 array([[ 1,  2,  3,  4],
