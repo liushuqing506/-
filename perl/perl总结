@@ -147,4 +147,4 @@ getopts("od:fF",\%options);
 而且-d后所跟的参数分别赋给变量$options{d}。对于变量$options{o},$options{f},$options{F}，若命令行加了-o，则$options{o}=1，否则为0。-f,-F类似]
 22
 自增
-les chrlist |perl -lane '$a++;print "$F[0]\t$a"'
+les chrlist |perl -lane '$a++;print "$F[0]\t$a"'  #必须外面是单引号，里面是双引号
