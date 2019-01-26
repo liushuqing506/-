@@ -11,7 +11,7 @@ if not os.path.exists(web_dir):
 Class原理
 class Foo:
   def __init__(self, na, age):
-    self.name = na
+    self.name = na  #注意
     self.age = age
   
   def detail(self):
