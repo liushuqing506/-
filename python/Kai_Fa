@@ -8,7 +8,7 @@ web_dir = analysis_dir;
 if not os.path.exists(web_dir):
     os.mkdir(web_dir)
 2.
-Class原理
+Class原理（https://www.cnblogs.com/chengd/articles/7287528.html）
 class Foo:
   def __init__(self, na, age):
     self.name = na  #注意
