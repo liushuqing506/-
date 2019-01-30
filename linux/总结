@@ -1,2 +1,10 @@
+1.
 按照行的方向合并两文件，或多个文件　分隔符为　：　如果分隔符为"\t"
 paste -d: 1.txt 2.txt >out.txt
+2.
+echo "hello world" | sed -f sed.script
+结果：A B
+sed.script脚本内容：
+s/hello/A/
+s/world/B/
+
