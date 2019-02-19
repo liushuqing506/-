@@ -7,4 +7,9 @@ echo "hello world" | sed -f sed.script
 sed.script脚本内容：
 s/hello/A/
 s/world/B/
+3.
+每一行的最大值
+awk 'BEGIN {max = 0}{for(i=1;i<NF+1;i++) {if($i > max){max=$i}} {print max}}' test.txt
+for(;){}
+if(;){}
 
