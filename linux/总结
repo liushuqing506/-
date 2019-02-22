@@ -22,5 +22,8 @@ awk -F "\t" '{print NF;exit}' file
 6.
 开头为＃的行除外
 grep -v '^#'
+7.
+cut -d可以指定出分隔符\t以外的其他分隔符
+cut -d, -f2
 
 
