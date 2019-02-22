@@ -18,5 +18,9 @@ grep -c "[^\n]" file
 5.
 统计文件的列数
 les 1.txt |head -n 1 |perl -lane 'print scalar @F' #只有一个引号，print后面没有引号
-awk -F "\t" '{print NF;exit}' ../test1/snplist
+awk -F "\t" '{print NF;exit}' file
+6.
+开头为＃的行除外
+grep -v '^#'
+
 
