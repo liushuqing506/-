@@ -3,7 +3,7 @@
 les 1.txt | perl -lne '@var=split("\t",$_,3);print "$var[2]"'
 2.
 统计文件的列数
-les 1.txt |head -n 1 |perl -lane 'print scalar @F'
+les 1.txt |head -n 1 |perl -lane 'print scalar @F' #只有一个引号，print后面没有引号
 awk -F "\t" '{print NF;exit}' ../test1/snplist
 3.
 uniq -c (唯一的项计数) 要与sort结合使用
