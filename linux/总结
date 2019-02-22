@@ -25,6 +25,16 @@ awk -F "\t" '{print NF;exit}' file
 grep -v '^#'
 7.
 cut -d可以指定出分隔符\t以外的其他分隔符
-cut -d, -f2
+cut -d, -f2 #以，分隔
+cut -c
+8.
+-k选项都要带上指定列的范围(start, end),如果只指定一列，就为(start,start)了，像上面命令的 -k1,1就是。-k2,2n，这里的n指定程序把第二列当做数值对待。如果不做设定，都是当做字符对待
+sort -k1,1 -k2,2n test.bed
+-r反向排序sort -k1,1 -k2,2nr test.bed
+-V(Chr11排在Chr2后面，否则完全是字符排序):sort -k1,1V -k2,2n test.bed
+9.
+对齐显示
+column -t
+
 
 
