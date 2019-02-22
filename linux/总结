@@ -1,3 +1,4 @@
+https://mp.weixin.qq.com/s?__biz=MzAxMDkxODM1Ng==&mid=2247485539&idx=1&sn=cbb02d48ea5bb90ee5bdf35d501ee428&chksm=9b4848d8ac3fc1ce58b14128a138c100d305cb70c61180b523c21ad4859fdcc2cd7e96a75c99&scene=21#wechat_redirect
 1.
 按照行的方向合并两文件，或多个文件　分隔符为　：　如果分隔符为"\t"
 paste -d: 1.txt 2.txt >out.txt
