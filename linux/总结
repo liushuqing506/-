@@ -12,4 +12,11 @@ s/world/B/
 awk 'BEGIN {max = 0}{for(i=1;i<NF+1;i++) {if($i > max){max=$i}} {print max}}' test.txt
 for(;){}
 if(;){}
+4.
+统计非空行行数
+grep -c "[^\n]" file
+5.
+统计文件的列数
+les 1.txt |head -n 1 |perl -lane 'print scalar @F' #只有一个引号，print后面没有引号
+awk -F "\t" '{print NF;exit}' ../test1/snplist
 
