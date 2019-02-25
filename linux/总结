@@ -35,6 +35,8 @@ sort -k1,1 -k2,2n test.bed
 9.
 对齐显示
 column -t
-
+10.
+行变列
+les test.snplist |sed -n 2p|awk '{for(i=0;++i<=NF;)a[i]=a[i]?a[i] FS $i:$i}END{for(i=0;i++<NF;)print a[i]}' |sort|uniq -c
 
 
