@@ -148,3 +148,5 @@ getopts("od:fF",\%options);
 22
 自增
 les chrlist |perl -lane '$a++;print "$F[0]\t$a"'  #必须外面是单引号，里面是双引号
+23
+next 语句将返回到循环体的起始处开始执行下一次循环。
