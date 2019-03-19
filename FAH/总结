@@ -1,0 +1,16 @@
+1.
+https://conda.io/en/latest/miniconda.html
+下载对应版本
+安装：sh Miniconda3-latest-Linux-x86_64.sh
+注：下载完成后，自动安装对应版本的python&pip
+2.
+添加国内软件源
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
+conda config --set show_channel_urls yes
+conda config --add channels 'https://conda.anaconda.org/bioconda/'
+conda config --add channels 'https://conda.anaconda.org/r/'
+注：查看已安装的channel：conda config --show
+3.
+安装软件
+conda install samtools
