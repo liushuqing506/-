@@ -7,10 +7,18 @@ https://conda.io/en/latest/miniconda.html
 添加国内软件源
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
 conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/conda-forge/
-conda config --set show_channel_urls yes
+conda config --set show_channel_urls yes(# 设置搜索时显示通道地址)
 conda config --add channels 'https://conda.anaconda.org/bioconda/'
 conda config --add channels 'https://conda.anaconda.org/r/'
 注：查看已安装的channel：conda config --show
 3.
 安装软件
 conda install samtools
+查看已经安装的软件
+conda list
+conda upgrade --all：更新所有包
+卸载包
+conda remove package_name
+更新包
+conda update package_name
+
