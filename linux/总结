@@ -38,5 +38,8 @@ column -t
 10.
 行变列
 les test.snplist |sed -n 2p|awk '{for(i=0;++i<=NF;)a[i]=a[i]?a[i] FS $i:$i}END{for(i=0;i++<NF;)print a[i]}' |sort|uniq -c
+11.
+linux硬盘坏道检测
+https://linux.cn/article-7961-1.html
 
 
