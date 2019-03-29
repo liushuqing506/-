@@ -1,14 +1,8 @@
-#-*- coding:utf-8 -*-
-#-------------------------------------------------------------------------------
-# Name:        模块1
-# Purpose:
-#
-# Author:      liushuqing506
-#
-# Created:     12/02/2018
-# Copyright:   (c) liushuqing506 2018
-# Licence:     <your licence>
-#-------------------------------------------------------------------------------
+新版的xls, xlsx的读写方法， 推荐使用库
+https://www.cnblogs.com/MrLJC/p/3715783.html
+
+----------------------------------------------------------------------
+以下是旧版，不建议使用
 import pandas as pd
 from pandas import DataFrame
 path_1 = r'C:\Users\WIN7\Desktop\新建文件夹 (2)\tracefile.xls'
