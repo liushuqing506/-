@@ -1,5 +1,10 @@
 
 局域网设置IP（ifconfig wlp3s0(无线网卡的名称)以太网ip）：https://blog.csdn.net/cartoonjh/article/details/78232019
+1. settings.py ALLOWED_HOSTS = ["xxx.xxx.xxx.xxx"]
+2. python manage.py runserver 0.0.0.8000
+3. 输入xxx.xxx.xxx.xxx：8000 即可访问
+
+
 嵩天云端开发：https://www.icourse163.org/learn/BIT-1001871002?tid=1001963002#/learn/announce
 
 http://www.liujiangblog.com/course/django/88
