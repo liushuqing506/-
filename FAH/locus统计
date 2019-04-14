@@ -1,0 +1,68 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+#----------------------------
+# Purpose:
+# Author:      liusq
+# Created:     19-4-14
+# Copyright:   Python 3.6
+#----------------------------
+
+from collections import Counter
+
+d = {"H1":{"1655":["A","X"],"16":["A","X"]},\
+     "H2":{"1655":["A","X"]},\
+     "H3":{"16":["X","X"],"11":["A","G"]},\
+     "H4":{"1655":["X","X"],"1":["A","G"]},\
+     "H5":{"16":["X","X"],"1":["A","G"]},}
+
+
+locus_number = []
+
+for i in d.keys():
+     locus_number += list(d[i].keys())
+
+one_locus_number = []
+repeat_locus_number = []
+for k in Counter(locus_number).keys():
+     if Counter(locus_number)[k] > 1:
+          repeat_locus_number.append(k)
+     else:
+          one_locus_number.append(k)
+
+print(one_locus_number)  #只有一个的位点
+for l in one_locus_number:
+     for p in d.keys():
+          if l in d[p].keys():
+               print(l,''.join(d[p][l]))
+
+
+dict_repeat_number = {}
+for j in repeat_locus_number:
+     dict_repeat_number[j] = []
+     for n in d.keys():
+          if j in d[n].keys():
+               dict_repeat_number[j].append(''.join(d[n][j]))
+
+for m in dict_repeat_number.keys():
+     a = Counter(dict_repeat_number[m])
+     b = dict_repeat_number[m]
+     if len(a) == 1:
+          if a["XX"]:
+               print(m,"NA")
+          else:
+               print(m,list(a.keys())[0])
+     elif len(a) == 2:
+          del a["XX"]
+          if len(a) == 1:
+               print(m,list(a.keys())[0])
+          else:
+               print('错',m)
+     else:
+          print('出错',m)
+
+
+
+
+
+
+
