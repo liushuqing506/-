@@ -1,0 +1,5 @@
+1.
+Python3导入turtle库时出现ModuleNotFoundError: No module named 'tkinter'错误解决方法
+udo apt-get install python3-tk
+
+2.
