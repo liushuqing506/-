@@ -2,4 +2,8 @@
 Python3导入turtle库时出现ModuleNotFoundError: No module named 'tkinter'错误解决方法
 udo apt-get install python3-tk
 
-2.
+2.中文显示
+matplotlib.rcParams['font.sans-serif'] = ['SimHei']
+matplotlib.rcParams['font.family']='sans-serif'
+matplotlib.rcParams['axes.unicode_minus'] = False
+
