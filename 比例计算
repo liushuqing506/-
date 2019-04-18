@@ -9,6 +9,11 @@
 # Copyright:   (c) liushuqing506 2018
 # Licence:     <your licence>
 #-------------------------------------------------------------------------------
+
+#ModuleNotFoundError: No module named ‘tkinter’
+#sudo apt-get install python3-tk
+
+
 import easygui as g
 msg = "请输入坐标信息"
 title = "坐标比例"
