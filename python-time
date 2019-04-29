@@ -1,4 +1,5 @@
 import datetime
+accept_date = '2019-04-01'
 delta = datetime.timedelta(days=1)
 apply_date = (datetime.datetime.strptime(accept_date,'%Y-%m-%d')- delta).strftime('%Y-%m-%d')
 
