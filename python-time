@@ -1,0 +1,14 @@
+import datetime
+delta = datetime.timedelta(days=1)
+apply_date = (datetime.datetime.strptime(accept_date,'%Y-%m-%d')- delta).strftime('%Y-%m-%d')
+
+
+python日期与字符串互转
+1.str -> date
+import datetime
+detester = '2017-01-01'
+date = datetime.datetime.strptime(detester,'%Y-%m-%d')
+2.date -> str
+import datetime
+date = datetime.now()
+detester = date.strftime(‘%Y-%m-%d')
