@@ -32,7 +32,7 @@ def title(content, beg=0):
 
 content = content(getHtml("http://bohaishibei.com/post/10449/"))
 # num = content.index('】')
-title = title(content)
+title = title(content) #返回一个列表
 print(title)
-for i, e in enumerate(title):
+for i, e in enumerate(title): #列表索引和对应内容
     print('第%d个，title：%s' % (i, e))
