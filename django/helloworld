@@ -53,6 +53,8 @@ Django version 2.1.5, using settings 'HelloWorld.settings'
 Starting development server at http://127.0.0.1:8000/  访问地址为http://127.0.0.1:8000/
 python manage.py runserver 0.0.0.0:8000   启动服务器0.0.0.0:8000（服务器地址），如果successful 说明正常启动服务器
 0.0.0.0让其它电脑可连接到开发服务器，8000为端口号。如果不说明，那么端口号默认为8000。
+在服务器端输入IP:8000直接访问
+
 3.
   3.1
   HelloWorld 目录(即wsgi.py所在目录)新建一个 view.py 文件，并输入代码：(view相当于一个模块，hello相当于模块里面的函数)
