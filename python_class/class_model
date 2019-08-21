@@ -1,4 +1,4 @@
-类具有属性和方法
+######  类具有属性和方法  ########
 
 class Ema:
     def __init__(self,number):  #number参数必须有
