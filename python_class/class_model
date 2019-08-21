@@ -18,3 +18,7 @@ number_dict  = {'name':['jay','lsq'],'score':[34,56]}
 
 a = Ema(number_dict)
 print(a.get_maxscore()) #调用类的.get_maxscore()方法
+
+
+结果返回：
+(56, 0)
