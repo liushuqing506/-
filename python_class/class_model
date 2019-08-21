@@ -25,3 +25,16 @@ print(a.get_maxscore()) #调用类的get_maxscore()方法
 结果返回：
 ['jay', 'lsq']
 (56, 0)
+
+
+也可以从自定义的库来调用类
+
+import number #自定义的number库，放在脚本的同级目录下
+
+number_dict  = {'name':['jay','lsq'],'score':[34,56]}
+a = number.Ema(number_dict) #调用number库的Ema类
+a.name
+
+
+结果返回：
+['jay', 'lsq']
