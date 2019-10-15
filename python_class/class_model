@@ -1,7 +1,7 @@
 ######  类具有属性和方法  ########
 self是特殊参数（每个函数必填）
 
-class Ema:
+class Ema:  #创建Ema类
     def __init__(self,number):  #number参数必须有
         self.name = number['name']    #属性
         self.score = number['score']  #属性
