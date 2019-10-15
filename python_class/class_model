@@ -27,9 +27,9 @@ print(a.get_maxscore()) #调用类的get_maxscore()方法
 ['jay', 'lsq']
 (56, 0)  #返回最大属性score最大值，以及get_maxscore()的参数数量
 
-
-也可以从自定义的库来调用类
-
+*************************
+也可以从自定义的库来调用类 *
+*************************
 import number #自定义的number库，放在脚本的同级目录下
 
 number_dict  = {'name':['jay','lsq'],'score':[34,56]}
