@@ -6,7 +6,7 @@ class Ema:
         self.name = number['name']    #属性
         self.score = number['score']  #属性
 
-    def num_info(self,*params):
+    def num_info(self,*params):  #统计*params参数的数量
         return len(params)
 
 
@@ -25,7 +25,7 @@ print(a.get_maxscore()) #调用类的get_maxscore()方法
 
 结果返回：
 ['jay', 'lsq']
-(56, 0)
+(56, 0)  #返回最大属性score最大值，以及get_maxscore()的参数数量
 
 
 也可以从自定义的库来调用类
