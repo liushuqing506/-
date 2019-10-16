@@ -1,6 +1,15 @@
 https://hub.docker.com/
+
 1.
 https://www.linuxidc.com/Linux/2018-09/154111.htm
 2.
 https://mp.weixin.qq.com/s?__biz=MzIyNzgyNDAxMg==&mid=2247484957&idx=1&sn=ea23e7f2c74261d65e36a798976c9327&chksm=e85a1efedf2d97e8bcc7278eb07dc61bf098d091406c09e9de5e98fb05e342ca6fc42a713d7c&scene=21#wechat_redirect
 docker pull 出现报错：https://blog.csdn.net/jianchi1117/article/details/86678486
+
+docker images 查看镜像
+docker ps -a 查看容器
+docker rm 65e94723f0ed 删除容器
+docker rmi a061cf8c12b8 删除镜像
+要注意的是，如果容器正在运行是无法删除，需要先停止
+停止全部所有容器Docker stop $(docker ps -aq)
+
