@@ -8,6 +8,6 @@ awk -F "\t" '{print NF;exit}' ../test1/snplist
 3.
 uniq -c (唯一的项计数) 要与sort结合使用
 4.
-less ATCG | tr "ATCG" "TAGC" 将里面的碱基替换
-rev序列反向
+less test.fasta | tr "ATCG" "TAGC" 将里面的碱基替换
+less test.fasta | rev序列反向
 
