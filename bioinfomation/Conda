@@ -7,5 +7,10 @@ conda config --remove channels 'https://mirrors.tuna.tsinghua.edu.cn/anaconda/pk
 使用以下命令恢复默认源:
 conda config --remove-key channels
 
+
+将auto_activate_base参数设置为false实现：conda config --set auto_activate_base false
+conda activate base
+重新恢复：conda config --set auto_activate_base true
+
 安装软件
 https://www.cnblogs.com/huangyinger/p/10308348.html
