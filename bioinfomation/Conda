@@ -9,7 +9,7 @@ conda config --remove-key channels
 
 
 将auto_activate_base参数设置为false实现：conda config --set auto_activate_base false
-conda activate base
+启动：conda activate base
 重新恢复：conda config --set auto_activate_base true
 
 安装软件
