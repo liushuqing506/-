@@ -2,6 +2,8 @@
 https://www.jianshu.com/p/fab0068a32b4
 http://blog.sina.com.cn/s/blog_166b15fc60102xlqa.html
 conda config --show
+
+删除channels
 conda config --remove channels 'https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/' 
 
 使用以下命令恢复默认源:
