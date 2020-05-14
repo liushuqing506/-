@@ -17,8 +17,10 @@ conda config --remove-key channels
 conda create -n your_env_name 创建新环境
 conda activate your_env_name 激活环境
 conda info -e 查看已有环境
+conda list            #查看当前安装的软件
 conda remove -n your_env_name --all 删除环境
 
 
 安装软件
 https://www.cnblogs.com/huangyinger/p/10308348.html
+https://www.jianshu.com/p/2e1986296e15
