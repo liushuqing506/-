@@ -22,5 +22,6 @@ conda remove -n your_env_name --all 删除环境
 
 
 安装软件
+conda install porechop --channel https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/
 https://www.cnblogs.com/huangyinger/p/10308348.html
 https://www.jianshu.com/p/2e1986296e15
