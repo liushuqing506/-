@@ -2,6 +2,9 @@
 sudo apt-get update
 sudo apt-get install r-base
 
+安装R包
+
+
 R画图
 https://www.jianshu.com/p/03719d7c207f
 
