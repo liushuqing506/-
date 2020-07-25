@@ -124,7 +124,11 @@ for parent, dirnames, filenames in os.walk(path,  followlinks=True):
         file_list.append(file_path)
         print('文件完整路径：%s\n' % file_path)
 
-************************
+************************保留位数
+四舍五入
+a = 12.345
+round(a, 2)
+12.35
 
 
 
