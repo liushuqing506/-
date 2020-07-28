@@ -135,8 +135,11 @@ import xlrd
 worksheet = xlrd.open_workbook('XXXX.xlsx')   #打开excel文件
 sheet_names= worksheet.sheet_names()    #获取excel中所有工作表名
 sheet2 = worksheet.sheet_by_name('Sheet2')    #根据Sheet名获取数据
+rows=sheet2.nrows  #Sheet2中行数
+ncols = sheet1.ncols  #Sheet2中列数
 rows = sheet2.row_values(3)   #表示获取Sheet2中第4行数据
 cols10 = sheet2.col_values(9)   #表示获取Sheet2中第10列数据（数据保存为list）
+cell_A1 = sheet1.cell(0,0).value #单元格内容
 
 
 
