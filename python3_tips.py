@@ -141,6 +141,8 @@ rows = sheet2.row_values(3)   #表示获取Sheet2中第4行数据
 cols10 = sheet2.col_values(9)   #表示获取Sheet2中第10列数据（数据保存为list）
 cell_A1 = sheet1.cell(0,0).value #单元格内容
 
+xlrd.xldate_as_tuple(sheet1.cell(i,j).value,worksheet.datemode) #读取excel中日期类型的数据（2020/7/2），返回（2020,7,2,0，0）
+
 
 
 
