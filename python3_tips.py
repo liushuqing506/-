@@ -143,6 +143,11 @@ cell_A1 = sheet1.cell(0,0).value #单元格内容
 
 xlrd.xldate_as_tuple(sheet1.cell(i,j).value,worksheet.datemode) #读取excel中日期类型的数据（2020/7/2），返回（2020,7,2,0，0）
 
+*************************把当前所在路径添加到环境变量中
+export PATH=$PATH:$(pwd)
+    
+*************************
+
 
 
 
