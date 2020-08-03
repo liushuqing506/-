@@ -39,7 +39,7 @@ from docx.oxml.ns import qn
 from docx.shared import Pt,RGBColor
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
 
-def set_run(run, font_size=12, bold = False, R=0,G=0,B=0, name='等线'):
+def set_run(run, font_size=12, bold = False, R=0,G=0,B=0, name='等线',italic=False):
     '''
     设置run对象
     :param run:
@@ -53,6 +53,7 @@ def set_run(run, font_size=12, bold = False, R=0,G=0,B=0, name='等线'):
     run.font.bold = bold  #默认不加粗
     run.font.color.rgb = RGBColor(R,G,B) #默认黑色
     run.font.name = name
+    run.font.italic = italic #默认不斜体
     # 设置字体必须要下面2步
     s = run._element
     s.rPr.rFonts.set(qn('w:eastAsia'), name)
