@@ -38,6 +38,7 @@ from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.oxml.ns import qn
 from docx.shared import Pt,RGBColor
 from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
+from docx.shared import Cm
 
 def set_run(run, font_size=12, bold = False, R=0,G=0,B=0, name='等线',italic=False):
     '''
@@ -63,14 +64,15 @@ docfile = "demo.docx"
 
 doc = Document(docfile)
 doc.tables[2].cell(0,0).paragraphs[0].text #查看内容
-run = doc.tables[0].cell(0,1).paragraphs[0].add_run('RICU')
+len(doc.tables) #整个word文档表格总数
+
+table = doc.tables[2]
+len(table.rows), len(table.columns) #tables[2]表格的行数和列数
+table.add_row() #末尾增加一行
+table.add_column(Cm(3))#末尾增加一列（Cm(3)宽度）
+run = doc.tables[0].cell(0,1).paragraphs[0].add_run('RICU') #添加对应位置数据
 set_run(run)
-run = doc.tables[0].cell(1,0).paragraphs[0].add_run('刘炳科')
-set_run(run)
-run = doc.tables[0].cell(1,1).paragraphs[0].add_run('TY2020061005')
-set_run(run)
-run = doc.tables[1].cell(10,3).paragraphs[0].add_run('15ml')
-set_run(run)
+
 
 #doc.tables[0].cell(1,0).paragraphs[0].alignment = WD_PARAGRAPH_ALIGNMENT.CENTER 居中
 doc.save(FAH_num+"-"+name+"-化疗药物多态性"+"-"+"".join(report_date.split("-"))+".docx")
