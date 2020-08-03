@@ -61,6 +61,7 @@ def set_run(run, font_size=12, bold = False, R=0,G=0,B=0, name='等线'):
 docfile = "demo.docx"
 
 doc = Document(docfile)
+doc.tables[2].cell(0,0).paragraphs[0].text #查看内容
 run = doc.tables[0].cell(0,1).paragraphs[0].add_run('RICU')
 set_run(run)
 run = doc.tables[0].cell(1,0).paragraphs[0].add_run('刘炳科')
