@@ -150,7 +150,9 @@ xlrd.xldate_as_tuple(sheet1.cell(i,j).value,worksheet.datemode) #读取excel中�
 *************************把当前所在路径添加到环境变量中
 export PATH=$PATH:$(pwd)
     
-*************************
+*************************tkinter库
+linux系统安装sudo apt-get install python3-tk
+
 
 
 
