@@ -1,5 +1,7 @@
 *************putty设置保持对话
-Session > Saved Session(命名如xiaoming) > Host Name (49.245.93.246@xiaoming) & Port(22001) > Connection > keepalives (设为10) > Session > Save
+Session > Saved Session(命名如xiaoming) > Host Name (49.245.93.246@xiaoming) & Port(22001) 
+> Connection > keepalives (设为10) 
+> Session > Save
 
 *************定义有序字典，值为列表
 from collections import OrderedDict
