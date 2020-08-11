@@ -1,8 +1,3 @@
-*************putty设置保持对话
-Session > Saved Session(命名如xiaoming) > Host Name (49.245.93.246@xiaoming) & Port(22001) 
-> Connection > keepalives (设为10) 
-> Session > Save
-
 *************定义有序字典，值为列表
 from collections import OrderedDict
 D_lines_dict = OrderedDict()
@@ -73,8 +68,8 @@ len(doc.tables) #整个word文档表格总数
 
 table = doc.tables[2]
 len(table.rows), len(table.columns) #tables[2]表格的行数和列数
-table.add_row() #末尾增加一行
-table.add_column(Cm(3))#末尾增加一列（Cm(3)宽度）
+table.add_row() #底部增加一行
+table.add_column(Cm(3))#右端增加一列（Cm(3)宽度）
 run = doc.tables[0].cell(0,1).paragraphs[0].add_run('RICU') #添加对应位置数据
 set_run(run)
 
@@ -155,9 +150,7 @@ xlrd.xldate_as_tuple(sheet1.cell(i,j).value,worksheet.datemode) #读取excel中�
 *************************把当前所在路径添加到环境变量中
 export PATH=$PATH:$(pwd)
     
-*************************tkinter库
-linux系统安装sudo apt-get install python3-tk
-
+*************************
 
 
 
