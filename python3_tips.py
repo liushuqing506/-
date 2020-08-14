@@ -153,7 +153,8 @@ xlrd.xldate_as_tuple(sheet1.cell(i,j).value,worksheet.datemode) #读取excel中�
 *************************把当前所在路径添加到环境变量中
 export PATH=$PATH:$(pwd)
     
-*************************
+************************* 特定目录下面的文件
+file_list = os.listdir('./B_fastq/')
 
 
 
