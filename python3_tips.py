@@ -3,6 +3,7 @@ from collections import OrderedDict
 D_lines_dict = OrderedDict()
 D_lines_dict.setdefault(k, []).append(str or list)
 or
+import collections
 read_alignments = collections.defaultdict(list)
 read_alignments['ok'].append(['12','34'])
 
