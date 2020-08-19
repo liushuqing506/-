@@ -159,6 +159,12 @@ file_list = os.listdir('./B_fastq/')
 *************************word添加固定章节
 设置章节
 
+*************************写入csv
+with open('%s_sorted_abundance.csv'%classification,'w',newline='',encoding='utf-8-sig') as csvFile:
+    writer = csv.writer(csvFile)
+    writer.writerow(("Species_name", "S_Ch", "reads_number", "abundance<%>", "Genus_name", "G_Ch", "reads_number",\
+                     "abundance<%>"))
+
 
 
 
