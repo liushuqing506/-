@@ -167,6 +167,9 @@ with open('%s_sorted_abundance.csv'%classification,'w',newline='',encoding='utf-
     writer.writerow(("Species_name", "S_Ch", "reads_number", "abundance<%>", "Genus_name", "G_Ch", "reads_number",\
                      "abundance<%>"))
 
+*************************统计文件行数
+file_lines = len(open('../test.fastq','r').readlines())
+
 
 
 
