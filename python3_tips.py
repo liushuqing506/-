@@ -170,6 +170,8 @@ with open('%s_sorted_abundance.csv'%classification,'w',newline='',encoding='utf-
 *************************统计文件行数
 file_lines = len(open('../test.fastq','r').readlines())
 
+*************************异常捕获
+
 
 
 
