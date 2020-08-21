@@ -138,6 +138,8 @@ a = 12.345
 round(a, 2)
 12.35
 
+'{:.2%}'.format(12.34532) #'1234.53%' 百分比并且小数点保留两位
+
 *************************py3读取excle数据
 import xlrd
 worksheet = xlrd.open_workbook('XXXX.xlsx')   #打开excel文件
