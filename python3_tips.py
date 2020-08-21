@@ -179,7 +179,7 @@ try:
 except IOError as msg:
     print('异常：{0}'.format(msg))  
 else:
-    print(file_list)
+    print('读取文件夹正常')
 
 
 
