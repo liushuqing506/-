@@ -171,6 +171,13 @@ with open('%s_sorted_abundance.csv'%classification,'w',newline='',encoding='utf-
 file_lines = len(open('../test.fastq','r').readlines())
 
 *************************异常捕获
+blast_path = r'H:\python3\project\test\0821\B_blast_1'
+try:
+    file_list = os.listdir(blast_path)
+except IOError as msg:
+    print('异常：{0}'.format(msg))  
+else:
+    print(file_list)
 
 
 
