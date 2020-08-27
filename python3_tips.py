@@ -110,7 +110,8 @@ def minimap2(fastq_file,minimap2_q):
     ...
 def kraken(fastq_file):
     ...
-
+    
+threads = []
 threads.append(threading.Thread(target=minimap2, args=(args.fastq, args.q)))
 threads.append(threading.Thread(target=kraken, args=(args.fastq,))) #参数必须使用（），如果有一个参数（args01，）
 for t in threads:
