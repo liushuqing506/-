@@ -1,3 +1,5 @@
+pycharm 往前缩进 Shift + Tab
+
 *************定义有序字典，值为列表
 from collections import OrderedDict
 D_lines_dict = OrderedDict()
