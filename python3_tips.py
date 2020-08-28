@@ -182,6 +182,22 @@ except IOError as msg:
 else:
     print('读取文件夹正常')
 
+*************************列表按指定个数拆分为若干子列表
+def list_of_groups(init_list, childern_list_len):
+    '''
+    init_list为初始化的列表，childern_list_len初始化列表中的几个数据组成一个小列表
+    :param init_list:
+    :param childern_list_len:
+    :return:
+    '''
+    list_of_group = zip(*(iter(init_list),) *childern_list_len)
+    end_list = [list(i) for i in list_of_group]
+    count = len(init_list) % childern_list_len
+    end_list.append(init_list[-count:]) if count !=0 else end_list
+    return end_list
+
+l = [i for i in range(15)]
+print(list_of_groups(l,2)) #[[0, 1], [2, 3], [4, 5], [6, 7], [8, 9], [10, 11], [12, 13], [14]]
 
 
 
