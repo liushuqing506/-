@@ -1,0 +1,11 @@
+#1 .tar.xz文件
+tar.xz压缩
+tar -cJvf lsq_data.tar.xz lsq_data
+tar.xz解压
+tar xf lsq_data.tar.xz
+
+#2 .zip文件
+压缩并且保留源文件<将lsq_data/文件夹压缩>
+zip -r lsq_data.zip lsq_data/
+解压
+unzip lsq_data.zip 解压并且保留源文件
