@@ -28,3 +28,11 @@ https://www.jianshu.com/p/2e1986296e15
 
 退出conda环境
 conda deactivate
+
+conda info --envs # 查看环境
+conda create -n R3.5  # 创建名为R3.5的环境
+source activate R3.5  
+conda list            #查看当前安装的软件
+conda install r-base #安装R语言
+conda install r-stringi # R包 以 r- 开头 
+conda deactivate # 退出当前环境
