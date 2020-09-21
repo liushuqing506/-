@@ -204,6 +204,19 @@ def list_of_groups(init_list, childern_list_len):
 l = [i for i in range(15)]
 print(list_of_groups(l,2)) #[[0, 1], [2, 3], [4, 5], [6, 7], [8, 9], [10, 11], [12, 13], [14]]
 
+***************************自动挂在硬盘
+0.
+mount /dev/sdb1 /mnt/newdisk
+1.
+df -hT
+/dev/sdb1               xfs        15T  7.5T  7.2T   52% /newdisk
+2.
+/etc/fstab
+/dev/sdb1 /newdisk    xfs    defaults    0 0
+/dev/sdb1 /mnt/newdisk    xfs    defaults    0 0
+
+***************************
+
 
 
 
