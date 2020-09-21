@@ -1,4 +1,5 @@
 pycharm 往前缩进 Shift + Tab
+dpkg --list 查看已经安装的软件
 
 *************定义有序字典，值为列表
 from collections import OrderedDict
