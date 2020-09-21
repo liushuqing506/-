@@ -217,6 +217,8 @@ df -hT
 /dev/sdb1 /mnt/newdisk    xfs    defaults    0 0
 
 ***************************
+添加用户： adduser djangouser
+设置用户密码：passwd djangouser
 
 
 
