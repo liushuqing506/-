@@ -16,3 +16,8 @@ tar -zcvf fastq_pass fastq_pass.tar.gz
 解压
 tar  -zxvf fastq_pass.tar.gz
 
+#4 .gz
+
+解压
+gunzip HelloWorld.java.gz
+
