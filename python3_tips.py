@@ -205,6 +205,10 @@ def list_of_groups(init_list, childern_list_len):
 l = [i for i in range(15)]
 print(list_of_groups(l,2)) #[[0, 1], [2, 3], [4, 5], [6, 7], [8, 9], [10, 11], [12, 13], [14]]
 
+***************************查看外置硬盘挂载信息
+fdisk -l 
+df -hT
+lsblk  -f
 ***************************自动挂在硬盘
 0.
 mount /dev/sdb1 /mnt/newdisk
