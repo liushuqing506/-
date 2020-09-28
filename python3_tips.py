@@ -223,6 +223,7 @@ df -hT
 ***************************
 添加用户： adduser djangouser
 设置用户密码：passwd djangouser
+更变一个目录或者文件的所属人: chown liushuqing /home/data/
 
 
 
