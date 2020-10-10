@@ -224,6 +224,9 @@ df -hT
 添加用户： adduser djangouser
 设置用户密码：passwd djangouser
 更变一个目录或者文件的所属人: chown liushuqing /home/data/
+    
+***************************读取文件内容有中文
+,'r',encoding='UTF-8'
 
 
 
