@@ -210,6 +210,8 @@ fdisk -l
 df -hT
 lsblk  -f
 ***************************自动挂在硬盘
+硬盘格式化sudo mkfs -t ext4 /dev/sda
+https://blog.51cto.com/12348890/2092339
 0.
 mount /dev/sdb1 /mnt/newdisk
 1.
