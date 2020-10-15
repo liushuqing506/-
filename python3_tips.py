@@ -231,6 +231,7 @@ df -hT
 ,'r',encoding='UTF-8'
 
 ***************************scp -r 传输文件加密码
+yum install sshpass
 sshpass -p 密码 scp -P 端口 源文件 目的文件
 
 
