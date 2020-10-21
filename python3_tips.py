@@ -241,6 +241,11 @@ df -hT
 yum install sshpass
 sshpass -p 密码 scp -P 端口 源文件 目的文件
 
+***************************参数文件的绝对路径
+parser = argparse.ArgumentParser(description = 'result2word')
+parser.add_argument('--i',required=True, help = 'please input raw_result_file')
+args = parser.parse_args()
+path1=os.path.abspath(args.i)
 
 
 
