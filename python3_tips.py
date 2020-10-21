@@ -209,6 +209,9 @@ print(list_of_groups(l,2)) #[[0, 1], [2, 3], [4, 5], [6, 7], [8, 9], [10, 11], [
 fdisk -l 
 df -hT
 lsblk  -f
+***************************查看内存大小
+less /proc/meminfo 
+MemTotal:
 ***************************自动挂在硬盘
 硬盘格式化sudo mkfs -t ext4 /dev/sda
 https://blog.51cto.com/12348890/2092339
@@ -233,6 +236,7 @@ df -hT
 ***************************scp -r 传输文件加密码
 yum install sshpass
 sshpass -p 密码 scp -P 端口 源文件 目的文件
+
 
 
 
