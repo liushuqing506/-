@@ -212,6 +212,10 @@ lsblk  -f
 ***************************查看内存大小
 less /proc/meminfo 
 MemTotal:
+***************************查看ip
+ip addr
+em*
+inet 192.168.1.116/24
 ***************************自动挂在硬盘
 硬盘格式化sudo mkfs -t ext4 /dev/sda
 https://blog.51cto.com/12348890/2092339
