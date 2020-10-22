@@ -248,6 +248,15 @@ parser.add_argument('--i',required=True, help = 'please input raw_result_file')
 args = parser.parse_args()
 path1=os.path.abspath(args.i)
 
+***************************.gz压缩文件内容写入.txt文件
+barcode_path = 'barcode01_merged_01.fastq.gz'
+fastq_file = 'barcode01.fastq'
+with gzip.open(barcode_path, 'r') as f1, open(fastq_file, 'w') as f2:
+    con = f1.readlines()
+    for line in con:
+         # 对从gz文件读取到的内容，应使用decode()进行转化，否则会报错：TypeError: write() argument must be str, not bytes
+        f2.write(line.decode('utf-8'))
+
 
 
 
