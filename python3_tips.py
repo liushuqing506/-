@@ -256,6 +256,8 @@ with gzip.open(barcode_path, 'r') as f1, open(fastq_file, 'w') as f2:
     for line in con:
          # 对从gz文件读取到的内容，应使用decode()进行转化，否则会报错：TypeError: write() argument must be str, not bytes
         f2.write(line.decode('utf-8'))
+***************************cut以分隔符分割取第一行
+cut -f1 -d'\t'
 
 
 
