@@ -263,6 +263,18 @@ cut -f1 -d'\t'
 f = lambda x:int(x)
 df["G3"]=df["G3"].map(f)
 
+***************************属排序，对应属内的种二级排序
+G_S_SN = AutoVivification()
+G_GN = AutoVivification()
+for i in bacteria_list:
+    info_text = i.split('\t')
+    G_S_SN[info_text[3]][info_text[7]] = int(info_text[9])
+    G_GN[info_text[3]] = int(info_text[5])
+S_queue = []  #最后排列的顺序
+for i in sorted(G_GN.items(),key=operator.itemgetter(1), reverse=True):
+    for j in sorted(G_S_SN[i[0]].items(), key=operator.itemgetter(1), reverse=True):
+        S_queue.append(j[0])
+
 
 
 
