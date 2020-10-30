@@ -259,6 +259,9 @@ with gzip.open(barcode_path, 'r') as f1, open(fastq_file, 'w') as f2:
 ***************************cut以分隔符分割取第一行
 cut -f1 -d'\t'
 
+***************************pandas对某一列或者行进行处理
+f = lambda x:int(x)
+df["G3"]=df["G3"].map(f)
 
 
 
