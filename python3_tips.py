@@ -167,7 +167,7 @@ vi ~/.bashrc   export PATH=$PATH:/home/liushuqing/miniconda3/envs/minimap2/bin/
 file_list = os.listdir('./B_fastq/')
 
 *************************word添加固定章节
-设置章节
+设置章节,增加/减少/修改章节位置
 
 *************************写入csv
 import csv
