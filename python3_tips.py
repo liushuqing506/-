@@ -275,6 +275,8 @@ S_queue = []  #最后排列的顺序
 for i in sorted(G_GN.items(),key=operator.itemgetter(1), reverse=True):
     for j in sorted(G_S_SN[i[0]].items(), key=operator.itemgetter(1), reverse=True):
         S_queue.append(j[0])
+***************************excel下拉菜单设置
+https://baijiahao.baidu.com/s?id=1632493625731728693&wfr=spider&for=pc
 
 
 
