@@ -187,6 +187,7 @@ except IOError as msg:
     print('异常：{0}'.format(msg))  
 else:
     print('读取文件夹正常')
+多种异常类型详情：https://www.runoob.com/python/python-exceptions.html
 
 *************************列表按指定个数拆分为若干子列表
 def list_of_groups(init_list, childern_list_len):
