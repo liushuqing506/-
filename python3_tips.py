@@ -102,6 +102,7 @@ print(sorted(Bacteria_number_Genus_dict.items(),key=operator.itemgetter(1), reve
 交集 list(set(genus_abundance_list).intersection(set(species_abundance_list)))
 差集genus_abundance_list   list(set(genus_abundance_list).difference(set(species_abundance_list)))
 差集species_abundance_list   list(set(species_abundance_list).difference(set(genus_abundance_list)))
+备注：https://www.cnblogs.com/yezishen/p/11739619.html
 
 *********************同时开启两个文件
 with open(abundance_file, "r",encoding='UTF-8') as f2,open(abundance_file, "w",encoding='UTF-8') as f3:
