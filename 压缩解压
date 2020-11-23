@@ -22,3 +22,10 @@ gzip 123.txt
 解压
 gunzip HelloWorld.java.gz
 
+#5 
+生成MD5文件
+md5sum 20201121G_barcode04_result.tar.xz > 20201121G_barcode04_result.tar.xz.md5
+验证MD5
+md5sum -c 20201121G_barcode04_result.tar.xz.md5
+
+
