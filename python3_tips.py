@@ -285,6 +285,10 @@ https://baijiahao.baidu.com/s?id=1632493625731728693&wfr=spider&for=pc
 a = [1,5,7,9]
 shuffle(a)
 
+***************************window和linux路径/反义
+result_path = r'H:\python3\project\test\1127\bfvp_new\data'
+result_file = result_path+r'\bacteria_mock.txt'
+
 
 
 
