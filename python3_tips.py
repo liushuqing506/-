@@ -31,7 +31,7 @@ for i,k in zip(a.keys(),b.keys()):
 *************三元表达式
 j = [j for j in species_ZE_dict.keys() if j in i.strip()]
 
-*************Word表格处理
+*************Word表格处理<https://zhuanlan.zhihu.com/p/88151371>
 import time
 import datetime
 import sys
