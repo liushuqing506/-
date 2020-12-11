@@ -167,6 +167,9 @@ vi ~/.bashrc   export PATH=$PATH:/home/liushuqing/miniconda3/envs/minimap2/bin/
 ************************* 特定目录下面的文件
 file_list = os.listdir('./B_fastq/')
 
+*************************文件是否存在？？
+os.path.exists(coverage_png_file)
+
 *************************word添加固定章节
 设置章节,增加/减少/修改章节位置
 
