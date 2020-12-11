@@ -293,6 +293,10 @@ result_path = r'H:\python3\project\test\1127\bfvp_new\data'
 result_file = result_path+r'\bacteria_mock.txt'
 window系统：result_file.split('\\')
 
+***************************json处理
+import json
+json.dumps(all_list,ensure_ascii=False) #编码中文
+ 
 
 
 
