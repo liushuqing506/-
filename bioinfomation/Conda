@@ -26,6 +26,7 @@ conda search nanoplot --channel https://mirrors.tuna.tsinghua.edu.cn/anaconda/cl
 conda create -n your_env_name 创建新环境
 conda activate your_env_name 激活环境
 conda install porechop --channel https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/ #安装软件
+conda install nanoplot=1.32.1 --channel https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud/bioconda/ #指定软件版本号
 https://www.cnblogs.com/huangyinger/p/10308348.html
 https://www.jianshu.com/p/2e1986296e15
 
