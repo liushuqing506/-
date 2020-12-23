@@ -296,6 +296,13 @@ window系统：result_file.split('\\')
 ***************************json处理
 import json
 json.dumps(all_list,ensure_ascii=False) #编码中文
+
+***************************特殊xls文件读取<少数xls文件因为本身文件格式问题，是不可以通过xlrd库读取>
+f = open(result_file,'rb')
+lines = f.readlines()
+for line in lines:
+    line = line.decode('gb2312').encode('utf8')
+    print(line)
  
 
 
