@@ -10,7 +10,7 @@ zip -r lsq_data.zip lsq_data/
 解压
 unzip lsq_data.zip 解压并且保留源文件
 
-#3 .tar.gz
+#3 .tar.gz  or .tgz
 压缩
 tar -zcvf fastq_pass fastq_pass.tar.gz
 解压
