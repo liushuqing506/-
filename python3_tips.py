@@ -301,7 +301,7 @@ json.dumps(all_list,ensure_ascii=False) #编码中文
 f = open(result_file,'rb')
 lines = f.readlines()
 for line in lines:
-    line = line.decode('gb2312').encode('utf8')
+    line = line.decode('gb2312') # 或者 line = line.decode('gb2312').encode('utf8')
     print(line)
  
 
