@@ -303,6 +303,13 @@ lines = f.readlines()
 for line in lines:
     line = line.decode('gb2312') # 或者 line = line.decode('gb2312').encode('utf8')
     print(line)
+    
+***************************按次数count倒序，次数相同按id升序
+id_list = [{'id': 123, 'count': 12, 'name': 'privacy'}, {'id': 47, 'count': 33, 'name': 'sensitive'},
+           {'id': 109, 'count': 1, 'name': 'permission'}, {'id': 102, 'count': 3, 'name': 'sensitive'},
+           {'id': 77, 'count': 3, 'name': 'sensitive'}, {'id': 52, 'count': 3, 'name': 'privacy'},
+           {'id': 10, 'count': 1, 'name': 'permission'}]
+print(sorted(id_list, key=lambda x:(-x['count'], int(x['id']))))
  
 
 
