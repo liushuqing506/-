@@ -255,6 +255,8 @@ parser.add_argument('--i',required=True, help = 'please input raw_result_file')
 args = parser.parse_args()
 path1=os.path.abspath(args.i)
 
+script_path = sys.path[0] #运行脚本的绝对路径
+
 ***************************.gz压缩文件内容写入.txt文件
 barcode_path = 'barcode01_merged_01.fastq.gz'
 fastq_file = 'barcode01.fastq'
