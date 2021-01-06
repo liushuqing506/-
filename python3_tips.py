@@ -312,6 +312,9 @@ id_list = [{'id': 123, 'count': 12, 'name': 'privacy'}, {'id': 47, 'count': 33, 
            {'id': 77, 'count': 3, 'name': 'sensitive'}, {'id': 52, 'count': 3, 'name': 'privacy'},
            {'id': 10, 'count': 1, 'name': 'permission'}]
 print(sorted(id_list, key=lambda x:(-x['count'], int(x['id']))))
+
+***************************程序选项（默认值）
+parser.add_argument('--pn', default = 10, type = int, help = 'please input fasta_parts_number;default = 10')
  
 
 
