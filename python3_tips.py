@@ -252,10 +252,10 @@ sshpass -p 密码 scp -P 端口 源文件 目的文件
 ***************************参数文件或者文件夹的绝对路径
 parser = argparse.ArgumentParser(description = 'result2word')
 parser.add_argument('--i',required=True, help = 'please input raw_result_file')
-parser.add_argument('--lenMin', type = int, default=False,help = 'default=False')
-parser.add_argument('--pn', type = int, default = 10,  help = 'please input fasta_parts_number;default = 10')
+parser.add_argument('--lenMin', type = int, default=False,help = 'default=False') 默认是False，参数类型整型
+parser.add_argument('--pn', type = int, default = 10,  help = 'please input fasta_parts_number;default = 10') 默认是10，参数类型整型
 args = parser.parse_args()
-path1=os.path.abspath(args.i)
+path1=os.path.abspath(args.i) #文件的绝对路径
 
 script_path = sys.path[0] #运行脚本的绝对路径
 
