@@ -1,3 +1,30 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+import os
+import time
+import operator
+from collections import OrderedDict
+import argparse
+import datetime
+import sys
+import re
+import docx
+import xlrd
+import random
+from docx import *
+from docx import Document
+from docx.enum.style import WD_STYLE_TYPE
+from docx.enum.table import WD_TABLE_ALIGNMENT
+from docx.enum.table import WD_ALIGN_VERTICAL
+from docx.enum.text import WD_ALIGN_PARAGRAPH
+from docx.oxml.ns import qn
+from docx.shared import Pt,RGBColor
+from docx.enum.text import WD_PARAGRAPH_ALIGNMENT
+from docx.shared import Cm
+from docx.oxml import OxmlElement
+from PIL import Image,ImageFilter
+
 def delete_paragraph(paragraph):
     p = paragraph._element
     p.getparent().remove(p)
