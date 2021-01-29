@@ -22,6 +22,12 @@ class AutoVivification(dict):
 
 info=AutoVivification()
 info['A']['B']['C']['D'] = 'OK'
+
+**************多键字典使用
+domain_id_dict[domain][speice_id] = speice
+for i,j in domain_id_dict.items():
+    for m,n in j.items():
+
 *************同时遍历两个列表或者字典
 a = {'A':'1','C':'1'}
 b = {'B':'2','D':'2'}
