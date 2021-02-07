@@ -179,6 +179,9 @@ os.path.exists(coverage_png_file)
 *************************word添加固定章节
 设置章节,增加/减少/修改章节位置
 
+***************************word模板的分页符
+可以设置分页符来单独分页
+
 *************************写入csv
 import csv
 with open('%s_sorted_abundance.csv'%classification,'w',newline='',encoding='utf-8-sig') as csvFile:
@@ -323,6 +326,8 @@ print(sorted(id_list, key=lambda x:(-x['count'], int(x['id']))))
 
 ***************************程序选项（默认值）
 parser.add_argument('--pn', default = 10, type = int, help = 'please input fasta_parts_number;default = 10')
+
+
  
 
 
