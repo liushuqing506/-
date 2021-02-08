@@ -116,7 +116,49 @@ def add_text(tables_num,row_loc,column_loc,text,italic=False,center=True,bold=Fa
 #        tables_num.cell(row_loc,column_loc).vertical_alignment = WD_ALIGN_VERTICAL.CENTER
     else:
         pass
-###  表格内部无线，最后底部外边框线和内部线不同
+    
+####################################表格外边框类型一   ： 表格内部有线，最后顶部和底部外边框线和内部线不同
+'''
+def table_frame(tables_num,rows_num,bottom=False,top=False):
+    tables_num.add_row()
+    if bottom :
+        for i in range(len(tables_num.columns)):
+            if i == 0:
+                set_cell_border(tables_num.cell(rows_num, i), \
+                    bottom={"sz":24, "val": "single","color": RGBColor(3, 168, 158),},)
+            else:
+                set_cell_border(tables_num.cell(rows_num, i), \
+                    bottom={"sz": 24, "val": "single", "color": RGBColor(3, 168, 158), }, \
+                    left={"sz": 4, "val": "single", "color": RGBColor(49, 133, 156), }, )
+    elif top:
+        for i in range(len(tables_num.columns)):
+            if i == 0:
+                set_cell_border(tables_num.cell(rows_num, i), \
+                    top={"sz":24, "val": "single","color": RGBColor(3, 168, 158),},)
+            else:
+                set_cell_border(tables_num.cell(rows_num, i), \
+                    top={"sz": 24, "val": "single", "color": RGBColor(3, 168, 158), }, \
+                    left={"sz": 4, "val": "single", "color": RGBColor(49, 133, 156), }, )
+    else:
+        for i in range(len(tables_num.columns)):
+            if i == 0:
+                set_cell_border(tables_num.cell(rows_num, i), \
+                    bottom={"sz":4, "val": "single","color": RGBColor(3, 168, 158),},)
+            else:
+                set_cell_border(tables_num.cell(rows_num, i), \
+                    bottom={"sz": 4, "val": "single", "color": RGBColor(3, 168, 158), }, \
+                    left={"sz": 4, "val": "single", "color": RGBColor(49, 133, 156), }, )
+def table_add_row(tables_num,add_row_num):
+    remove_row(tables_num, tables_num.rows[2])
+    for i in range(add_row_num-1):
+        if i == 0:
+            table_frame(tables_num, 2 + i,top=True)
+        else:
+            table_frame(tables_num, 2 + i)  # add newrow and set frame
+    table_frame(tables_num, 2+add_row_num-1,bottom=True)
+ '''   
+####################################表格外边框类型二  ： 表格内部无线，最后底部外边框线和内部线不同
+'''
 def table_frame(tables_num,rows_num,bottom=False):
     tables_num.add_row()
     if bottom:
@@ -131,9 +173,9 @@ def table_add_row(tables_num,add_row_num):
     for i in range(add_row_num-1):
         table_frame(tables_num, 2 + i)  # add newrow and set frame
     table_frame(tables_num, 2+add_row_num-1,bottom=True)
+ '''   
     
-    
-    
+####################################表格外边框类型三  ：  表格内部有线，最后底部外边框线和内部线不同   
 '''  表格内部有线，最后底部外边框线和内部线不同
 def table_frame(tables_num,rows_num):
     tables_num.add_row()
