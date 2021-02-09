@@ -327,6 +327,9 @@ print(sorted(id_list, key=lambda x:(-x['count'], int(x['id']))))
 ***************************程序选项（默认值）
 parser.add_argument('--pn', default = 10, type = int, help = 'please input fasta_parts_number;default = 10')
 
+***************************先读取第一行的标题栏（剔除掉标题栏）
+fr.readline() 
+
 
  
 
