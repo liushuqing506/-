@@ -307,8 +307,13 @@ result_file = result_path+r'\bacteria_mock.txt'
 window系统：result_file.split('\\')
 
 ***************************json处理
+***写入json
 import json
 json.dumps(all_list,ensure_ascii=False) #编码中文
+***读取json
+with open(result_file,'r',encoding='UTF-8') as fr:
+    strJson = json.load(fr)
+print(strJson['name'])
 
 ***************************特殊xls文件读取<少数xls文件因为本身文件格式问题，是不可以通过xlrd库读取>
 f = open(result_file,'rb')
