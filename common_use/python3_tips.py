@@ -335,6 +335,11 @@ parser.add_argument('--pn', default = 10, type = int, help = 'please input fasta
 ***************************先读取第一行的标题栏（剔除掉标题栏）
 fr.readline() 
 
+***************************同时一次删除列表多个元素
+list1 = [1,2,3,4,5,6,7,8,9,10]  #4,6
+index_to_delete = [3,5]
+list1 = [list1[i] for i in range(0, len(list1), 1) if i not in index_to_delete]
+
 
  
 
