@@ -309,7 +309,9 @@ window系统：result_file.split('\\')
 ***************************json处理
 ***写入json
 import json
-json.dumps(all_list,ensure_ascii=False) #编码中文
+j = json.dumps(convert_list,ensure_ascii=False) #编码中文
+with codecs.open('file.json', "w", "utf-8") as f:
+    f.write(j)
 ***读取json
 with open(result_file,'r',encoding='UTF-8') as fr:
     strJson = json.load(fr)
