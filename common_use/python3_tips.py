@@ -348,6 +348,12 @@ list1 = [list1[i] for i in range(0, len(list1), 1) if i not in index_to_delete]
 >>>import copy
 >>> c = copy.deepcopy(a)
 
+**************************dos2unix
+断行符
+window : ^M$ 
+linux  : $
+dos2unix filename
+
 
  
 
