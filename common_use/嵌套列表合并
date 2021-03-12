@@ -1,0 +1,19 @@
+a = [['12', ['6', '8', '9'], '333', ['6', '8'], '10'],
+     ['12', ['6', '8', '9'], '333', ['6', '8'], '10']]
+
+
+def handleList(inputList):
+    def handleList(tempList):
+        if not isinstance(tempList, list):
+            temp.append(tempList)
+            return
+        else:
+            for i in tempList:
+                handleList(i)
+
+    temp = []
+    handleList(inputList)
+    return temp
+
+
+print(handleList(a))
