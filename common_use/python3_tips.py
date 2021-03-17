@@ -136,6 +136,14 @@ startTime = time.time()
 ...
 endTime = time.time()
 print(endTime-startTime)
+--------------------------------
+import time
+start_time = time.perf_counter()
+time.sleep(5) #中间过程。。。
+stop_time = time.perf_counter()
+cost = stop_time - start_time
+with open('cost_{0}s'.format(cost),'w') as fw:
+    pass
 
 ***********************统计路径下所有文件
 file_list = []
