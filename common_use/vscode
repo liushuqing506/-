@@ -1,3 +1,8 @@
 1.vscode远程服务器
 https://blog.csdn.net/junbaba_/article/details/111590179
 
+/ssh_config
+Host vm1
+    HostName 192.168.1.11
+    User upload
+    Port 22
