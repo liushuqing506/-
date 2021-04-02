@@ -1,0 +1,2 @@
+json格式标准化处理
+jq . 20210401_01_B_barcode07_2021-04-02.00.38.21_result.json | less
