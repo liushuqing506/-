@@ -364,8 +364,8 @@ dos2unix filename
 
 **************************split指定多个分隔符
 import re
-text=‘3.14:15’
-print re.split(’[.:]’, text)
+text='3.14:15'
+print re.split('[.:]', text)
 
 
  
