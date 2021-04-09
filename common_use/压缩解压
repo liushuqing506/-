@@ -17,7 +17,8 @@ tar -zcvf fastq_pass fastq_pass.tar.gz
 tar  -zxvf fastq_pass.tar.gz
 
 #4 .gz
-压缩 
+压缩
+gzip -c /data/liushuqing/test/Y2020/1216_vsearch/test_210408/over/barcode01_100_nochimeras.fa > ./over/barcode01_100_nochimeras.fa.gz
 gzip 123.txt
 解压
 gunzip HelloWorld.java.gz
