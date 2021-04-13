@@ -1,3 +1,7 @@
 1.
 matplotlib颜色
 https://www.cnblogs.com/darkknightzh/p/6117528.html
+
+2.
+# 处理乱码
+matplotlib.rcParams['font.sans-serif'] = ['SimHei']  # 用黑体显示中文
