@@ -1,6 +1,9 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+'''
+pip install pywin32 安装pywin32
+'''
 
 from win32com.client import gencache
 from win32com.client import constants, gencache
