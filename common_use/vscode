@@ -1,6 +1,8 @@
 1.vscode远程服务器
 https://blog.csdn.net/junbaba_/article/details/111590179
 
+点击<SSH Targets>右边的设置按钮
+
 /ssh_config
 Host vm1
     HostName 192.168.1.11
