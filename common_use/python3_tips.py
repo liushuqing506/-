@@ -265,8 +265,9 @@ r-4 | w-2 | x-1
 ,'w',encoding='UTF-8'
 
 ***************************scp -r 传输文件加密码
-yum install sshpass
-sshpass -p 密码 scp -P 端口 源文件 目的文件
+yum install sshpass 没有先安装
+安装完成，先scp -r -P 端口 源文件 目的文件密码调试 yes/no
+sshpass -p 密码 scp -r -P 端口 源文件 目的文件 
 小p密码；大P端口
 
 ***************************参数文件或者文件夹的绝对路径
