@@ -372,6 +372,15 @@ print re.split('[.:]', text)
 **************************软连接
 ln -s 【目标目录】 【软链接地址】
 
+**************************判断是文件还是文件夹？
+import os
+if os.path.isdir(path):
+  print "it's a directory"
+elif os.path.isfile(path):
+  print "it's a normal file"
+else:
+  print "it's a special file(socket,FIFO,device file)"
+
 
  
 
