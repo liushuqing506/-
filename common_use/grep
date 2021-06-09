@@ -1,1 +1,5 @@
+#找从spades.sh找出含有spadesN.index内容的行
 grep -wFf spadesN.index assemblyResult/spades/spades.sh
+
+#找从spades.sh找出“不”含有spadesN.index内容的行
+grep -vwFf zip.md5.Y.txt vm20-dataUploadScp.sh
