@@ -381,6 +381,9 @@ elif os.path.isfile(path):
 else:
   print "it's a special file(socket,FIFO,device file)"
 
+**************************起始
+str.startswith( 'this' )
+
 
  
 
