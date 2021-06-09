@@ -32,6 +32,8 @@ tar -jxvf xx.tar.bz2
 md5sum 20201121G_barcode04_result.tar.xz > 20201121G_barcode04_result.tar.xz.md5
 验证MD5
 md5sum -c 20201121G_barcode04_result.tar.xz.md5
+or
+md5sum -c *zip.md5
 
 #7
 批量解压
