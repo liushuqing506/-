@@ -4,3 +4,6 @@ awk -F';' '{print $NF}'   #以；分割，选取最后一行
 #2
 awk '$3!="*" && $5>50' 200904_bc10_hac.sam | sed -n 2,116507p | cut -f3 | sort | uniq -c | sort -nr | less
 
+#3 多个分隔符
+awk -F"[@ /t]" '{print $2,$3}' test
+
