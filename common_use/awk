@@ -7,3 +7,6 @@ awk '$3!="*" && $5>50' 200904_bc10_hac.sam | sed -n 2,116507p | cut -f3 | sort |
 #3 多个分隔符
 awk -F"[@ /t]" '{print $2,$3}' test  #以@，空格，Tab键分割test文件的每一行，并输出第二、第三列。
 
+#4 求和
+awk '{a+=$1}END{print a}'
+
