@@ -5,6 +5,7 @@ free -h
 每个物理CPU中core的个数（即核数）：cat /proc/cpuinfo| grep "cpu cores"| uniq
 逻辑cpu的个数：cat /proc/cpuinfo| grep "processor"| wc -l
 CPU信息（型号）：cat /proc/cpuinfo | grep name | cut -f2 -d: | uniq -c
+------------------------------
 #1
 进程内存消耗查看
 https://blog.csdn.net/mynamepg/article/details/80583385
