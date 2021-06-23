@@ -1,3 +1,4 @@
+#1
 进程内存消耗查看
 https://blog.csdn.net/mynamepg/article/details/80583385
 查看内存占用前五的进程
@@ -18,12 +19,13 @@ COMMAND 启动进程的命令
 命令：ps auxw | head -1;ps auxw|sort -rn -k3|head -3
 #####################################
 
+#2
 进程执行的路径
 ps aux | grep genome_analysis_ys.pl
 或者
 ps -ef | grep genome_analysis_ys.pl
 
-ll /proc/86099
+ll /proc/86099 #86099是进程号
 返回
 cwd -> /data/liushuqing/test/Y2021/20210520_01_B-20210521_03_B-genome_plasmid-analysis/plasmid/20210521_03_B_barcode09
 
