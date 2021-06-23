@@ -29,3 +29,10 @@ ll /proc/86099 #86099是进程号
 返回
 cwd -> /data/liushuqing/test/Y2021/20210520_01_B-20210521_03_B-genome_plasmid-analysis/plasmid/20210521_03_B_barcode09
 
+——————————————————————————
+进程管理
+slurm 作业管理系统常用命令 srun
+官网:https://slurm.schedmd.com/tutorials.html
+https://zhuanlan.zhihu.com/p/356415669
+
+
