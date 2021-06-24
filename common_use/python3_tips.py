@@ -103,8 +103,11 @@ print(list2)        # [0, 3, 2, 1, 9, 8, 7]
 ********************按字典的值排序
 import operator
 Bacteria_number_Genus_dict = {'A':1,'C':1,'B':2,'D':1,'E':3,}
-print(sorted(Bacteria_number_Genus_dict.items(),key=operator.itemgetter(1), reverse=True))
+print(sorted(Bacteria_number_Genus_dict.items(),key=operator.itemgetter(1), reverse=True))  #值<itemgetter(1)>，降序
 返回[('E', 3), ('B', 2), ('A', 1), ('C', 1), ('D', 1)]
+********按字典的键排序
+print(sorted(Bacteria_number_Genus_dict.items(),key=operator.itemgetter(0),))  #键<itemgetter(1)>，升序
+
 
 *********************列表去交集，并集，差集
 交集 list(set(genus_abundance_list).intersection(set(species_abundance_list)))
