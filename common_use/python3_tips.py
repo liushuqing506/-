@@ -107,7 +107,8 @@ print(sorted(Bacteria_number_Genus_dict.items(),key=operator.itemgetter(1), reve
 返回[('E', 3), ('B', 2), ('A', 1), ('C', 1), ('D', 1)]
 ********按字典的键排序
 print(sorted(Bacteria_number_Genus_dict.items(),key=operator.itemgetter(0),))  #键<itemgetter(1)>，升序
-
+以上返回的都是列表，如果需要返回字典如下：
+dict(sorted(Bacteria_number_Genus_dict.items(),key=operator.itemgetter(0),))
 
 *********************列表去交集，并集，差集
 交集 list(set(genus_abundance_list).intersection(set(species_abundance_list)))
