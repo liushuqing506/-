@@ -10,5 +10,5 @@ Host vm1
     Port 22
     
 2.
-shilf+alt+F 格式化文档
+shilf+alt+F 格式化文档<例如json文件格式>
 alt+Z 切换自动换行
