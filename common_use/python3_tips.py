@@ -388,6 +388,18 @@ else:
 **************************起始
 str.startswith( 'this' )
 
+**************************首行空格2字符
+from docx import Document
+from docx.shared import Cm
+
+demo_file = r"t1.docx"
+doc = Document(demo_file)
+paragraph = doc.paragraphs[0]
+paragraph.add_run('卷曲乳杆菌是革兰氏阳性杆菌，乳杆菌属。乳杆菌属是阴道和胃肠道自然菌群的主导成员，适量乳杆菌的存在可保持阴道的微环境，防止病原体侵入，使得微环境维持稳态，但是，过量的乳杆菌也是会引起疾病，如细胞溶解性阴道炎。乳杆菌菌株在发酵食品和饮料行业广泛使用，并用作疫苗输送系统，以激活动物模型的粘膜免疫等。一些研究表明，局部或口服某些乳杆菌菌株作为益生菌可预防阴道炎（复发性外阴道假丝酵母VVC）的复发，但仍缺乏其有效性的一致证据。乳杆菌属为革兰阳性杆菌，其大部分的病原菌是人和动物消化道黏膜表面共生菌群的一部分，主要存在于口腔、小肠、大肠、泌尿生殖道和皮肤表面。乳杆菌属是益生菌， ')
+paragraph.paragraph_format.first_line_indent = Cm(0.74) #首行空格两个字符
+#paragraph.paragraph_format.first_line_indent =406400
+doc.save("{0}".format('test.docx'))
+
 
  
 
