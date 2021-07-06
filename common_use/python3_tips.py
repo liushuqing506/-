@@ -400,6 +400,9 @@ paragraph.paragraph_format.first_line_indent = Cm(0.74) #首行空格两个字�
 #paragraph.paragraph_format.first_line_indent =406400
 doc.save("{0}".format('test.docx'))
 
+***************************提取文件大小
+os.path.getsize('/data/liushuqing/test/Y2021/LC/0629_X101SC21022006-Z01-J021/seqData/spadesResult/TH1001/scaffolds.fasta')
+
 
  
 
